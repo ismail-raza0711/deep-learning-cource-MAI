@@ -32,8 +32,7 @@ def get_data_loaders(data_dir="./data", batch_size=128, val_split=0.1, num_worke
     small standard deviations, causing the normalized
     images to explode to very large values.
     This destabilizes both the optimizer and BatchNorm.
-    I replaced them with the correct CIFAR-10 normalization
-    values used in PyTorch examples and research literature.
+    I replaced them with the correct CIFAR-10 normalization values.
     !!!!!!!!!!!!!!
     """
     mean = [0.4914, 0.4822, 0.4465]
@@ -71,7 +70,7 @@ def get_data_loaders(data_dir="./data", batch_size=128, val_split=0.1, num_worke
         batch_size=batch_size,
         shuffle=True,
         num_workers=num_workers,
-        pin_memory=True,
+        pin_memory=False,  # !!! Changed to False to avoid potential issues on some systems
     )
 
     val_loader = DataLoader(
@@ -79,7 +78,7 @@ def get_data_loaders(data_dir="./data", batch_size=128, val_split=0.1, num_worke
         batch_size=batch_size,
         shuffle=False,
         num_workers=num_workers,
-        pin_memory=True,
+        pin_memory=False,  # !!! Changed to False to avoid potential issues on some systems
     )
 
     test_loader = DataLoader(
@@ -87,7 +86,7 @@ def get_data_loaders(data_dir="./data", batch_size=128, val_split=0.1, num_worke
         batch_size=batch_size,
         shuffle=False,
         num_workers=num_workers,
-        pin_memory=True,
+        pin_memory=False,  # !!! Changed to False to avoid potential issues on some systems
     )
 
     return train_loader, val_loader, test_loader
