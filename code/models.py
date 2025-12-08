@@ -52,7 +52,7 @@ class CNN(nn.Module):
     Architecture: Two Conv-BN-ReLU-Conv-BN-ReLU-MaxPool blocks followed by FC layers
     """
 
-    def __init__(self, num_classes=10):
+    def __init__(self, num_classes=10, dropout=0.25):
         super(CNN, self).__init__()
 
         # Convolutional layers
@@ -64,6 +64,7 @@ class CNN(nn.Module):
             nn.Conv2d(32, 32, kernel_size=3, padding=1),
             nn.BatchNorm2d(32),
             nn.ReLU(),
+            nn.Dropout(dropout),  #!!! Dropout added here for regularization
             nn.MaxPool2d(2, 2),
             # Block 2:
             nn.Conv2d(32, 64, kernel_size=3, padding=1),
@@ -72,6 +73,7 @@ class CNN(nn.Module):
             nn.Conv2d(64, 64, kernel_size=3, padding=1),
             nn.BatchNorm2d(64),
             nn.ReLU(),
+            nn.Dropout(dropout),  #!!! Dropout added here for regularization
             nn.MaxPool2d(2, 2),
         )
 
@@ -87,6 +89,7 @@ class CNN(nn.Module):
             nn.Linear(4096, 512),  # fixed input size
             nn.BatchNorm1d(512),
             nn.ReLU(),  # missing activation function moved to its correct place
+            nn.Dropout(dropout),
             nn.Linear(512, 10),
         )
 
