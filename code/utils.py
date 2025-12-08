@@ -39,6 +39,13 @@ def train_one_epoch(model, train_loader, criterion, optimizer, device):
 
         outputs = model(images)
         loss = criterion(outputs, labels)
+        """ 
+        !!!!!!!!!!!!!
+        Gradients accumulate across batches.
+        Clear gradients before backward pass
+        !!!!!!!!!!!!!!
+        """
+        optimizer.zero_grad()
         loss.backward()
         optimizer.step()
 

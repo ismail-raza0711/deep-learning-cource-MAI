@@ -1,0 +1,48 @@
+======================================================================
+
+Using device: mps
+
+Loading CIFAR-10 data...
+Training samples: 45000
+Validation samples: 5000
+Test samples: 10000
+
+Creating MLP model...
+Total parameters: 1,708,810
+
+======================================================================
+Starting Training
+======================================================================
+Epoch [  1/25] | Train Loss: 1.6980 | Train Acc: 39.36% | Val Loss: 1.5158 | Val Acc: 45.42%
+Checkpoint saved to ./checkpoints/best_model_mlp.pth
+Checkpoint saved to ./checkpoints/best_model_mlp.pth
+Checkpoint saved to ./checkpoints/best_model_mlp.pth
+Checkpoint saved to ./checkpoints/best_model_mlp.pth
+Epoch [  5/25] | Train Loss: 1.4164 | Train Acc: 49.47% | Val Loss: 1.3834 | Val Acc: 49.16%
+Checkpoint saved to ./checkpoints/best_model_mlp.pth
+Checkpoint saved to ./checkpoints/best_model_mlp.pth
+Checkpoint saved to ./checkpoints/best_model_mlp.pth
+Epoch [ 10/25] | Train Loss: 1.3491 | Train Acc: 51.85% | Val Loss: 1.3365 | Val Acc: 51.62%
+Checkpoint saved to ./checkpoints/best_model_mlp.pth
+Epoch [ 15/25] | Train Loss: 1.3118 | Train Acc: 53.05% | Val Loss: 1.3055 | Val Acc: 52.66%
+Epoch [ 20/25] | Train Loss: 1.2862 | Train Acc: 54.04% | Val Loss: 1.2897 | Val Acc: 52.92%
+
+Early stopping triggered after 22 epochs
+Best validation accuracy: 53.10%
+
+======================================================================
+Training Completed
+======================================================================
+Best Validation Accuracy: 53.10%
+
+Generating training history plots...
+Training history plot saved to ./checkpoints/training_history_mlp.png
+2025-12-08 20:07:40.113 Python[15072:127500] +[IMKClient subclass]: chose IMKClient_Modern
+2025-12-08 20:07:40.113 Python[15072:127500] +[IMKInputSession subclass]: chose IMKInputSession_Modern
+
+Evaluating on test set...
+Test Loss: 1.3002 | Test Accuracy: 53.40%
+
+======================================================================
+All Done!
+======================================================================
