@@ -86,8 +86,8 @@ class CNN(nn.Module):
         self.fc_layers = nn.Sequential(
             nn.Linear(4096, 512),  # fixed input size
             nn.BatchNorm1d(512),
+            nn.ReLU(),  # missing activation function moved to its correct place
             nn.Linear(512, 10),
-            nn.ReLU(),
         )
 
     def forward(self, x):
