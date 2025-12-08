@@ -7,7 +7,7 @@ class Config:
     """Configuration parameters for training."""
 
     # Model settings
-    MODEL_TYPE = "mlp"  # 'mlp' or 'cnn'
+    MODEL_TYPE = "cnn"  # 'mlp' or 'cnn'
 
     # MLP specific settings
     MLP_HIDDEN_SIZES = [512, 256]
