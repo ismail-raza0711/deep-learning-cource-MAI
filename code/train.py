@@ -40,7 +40,8 @@ def main():
     os.makedirs(Config.SAVE_DIR, exist_ok=True)
 
     # Device configuration
-    device = torch.device(Config.DEVICE if torch.cuda.is_available() else "msp")
+    # device = torch.device(Config.DEVICE if torch.cuda.is_available() else "cpu")
+    device = torch.device(Config.DEVICE)
     print(f"\nUsing device: {device}")
 
     # Load data
