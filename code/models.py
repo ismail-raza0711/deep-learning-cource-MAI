@@ -75,9 +75,19 @@ class CNN(nn.Module):
             nn.MaxPool2d(2, 2),
         )
 
+        """
+        !!!!!!!!!!!!!
+        Input: 3 * 32 * 32
+        Block 1 MaxPool → 32 channels= 16*16
+        Block 2 MaxPool → 64 channels= 8*8
+        So flattened size = 64 * 8 * 8 = 4096
+        """
         # Fully connected layers
         self.fc_layers = nn.Sequential(
-            nn.Linear(1024, 512), nn.BatchNorm1d(512), nn.Linear(512, 10), nn.ReLU()
+            nn.Linear(4096, 512),  # fixed input size
+            nn.BatchNorm1d(512),
+            nn.Linear(512, 10),
+            nn.ReLU(),
         )
 
     def forward(self, x):
