@@ -165,8 +165,14 @@ def main():
     )
 
     # Evaluate on test set
+    """
+    !!!!!!!
+    train dataset gives fake 90..99% accuracy it was train data before this.
+    """
+
     print("\nEvaluating on test set...")
-    test_loss, test_acc = evaluate(model, train_loader, criterion, device)
+    # test_loss, test_acc = evaluate(model, train_loader, criterion, device)
+    test_loss, test_acc = evaluate(model, test_loader, criterion, device)
     print(f"Test Loss: {test_loss:.4f} | Test Accuracy: {test_acc:.2f}%")
 
     print("\n" + "=" * 70)
