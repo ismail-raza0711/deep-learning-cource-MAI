@@ -37,7 +37,7 @@ class MLP(nn.Module):
             in_size = hidden_size
 
         layers.append(nn.Linear(in_size, num_classes))
-        layers.append(nn.ReLU())
+        # layers.append(nn.ReLU()) # !!!!!! Removed activation from output layer
 
         self.network = nn.Sequential(*layers)
 
