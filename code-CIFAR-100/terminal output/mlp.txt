@@ -1,0 +1,37 @@
+======================================================================
+Starting Training
+======================================================================
+Epoch [  1/25] | Train Loss: 3.8773 | Train Acc: 11.22% | Val Loss: 3.5521 | Val Acc: 16.52%
+Checkpoint saved to ./checkpoints/best_model_mlp.pth
+Checkpoint saved to ./checkpoints/best_model_mlp.pth
+Checkpoint saved to ./checkpoints/best_model_mlp.pth
+Checkpoint saved to ./checkpoints/best_model_mlp.pth
+Epoch [  5/25] | Train Loss: 3.2984 | Train Acc: 20.64% | Val Loss: 3.2451 | Val Acc: 21.40%
+Checkpoint saved to ./checkpoints/best_model_mlp.pth
+Checkpoint saved to ./checkpoints/best_model_mlp.pth
+Checkpoint saved to ./checkpoints/best_model_mlp.pth
+Epoch [ 10/25] | Train Loss: 3.1511 | Train Acc: 23.28% | Val Loss: 3.1277 | Val Acc: 23.46%
+Checkpoint saved to ./checkpoints/best_model_mlp.pth
+Epoch [ 15/25] | Train Loss: 3.0691 | Train Acc: 24.64% | Val Loss: 3.0764 | Val Acc: 25.04%
+Checkpoint saved to ./checkpoints/best_model_mlp.pth
+Checkpoint saved to ./checkpoints/best_model_mlp.pth
+Epoch [ 20/25] | Train Loss: 3.0076 | Train Acc: 25.95% | Val Loss: 3.0316 | Val Acc: 26.06%
+Checkpoint saved to ./checkpoints/best_model_mlp.pth
+Epoch [ 25/25] | Train Loss: 2.9768 | Train Acc: 26.45% | Val Loss: 3.0099 | Val Acc: 25.92%
+
+======================================================================
+Training Completed
+======================================================================
+Best Validation Accuracy: 26.80%
+
+Generating training history plots...
+Training history plot saved to ./checkpoints/training_history_mlp.png
+2025-12-09 09:59:16.728 Python[4919:44439] +[IMKClient subclass]: chose IMKClient_Modern
+2025-12-09 09:59:16.728 Python[4919:44439] +[IMKInputSession subclass]: chose IMKInputSession_Modern
+
+Evaluating on test set...
+Test Loss: 2.9962 | Test Accuracy: 27.45%
+
+======================================================================
+All Done!
+======================================================================

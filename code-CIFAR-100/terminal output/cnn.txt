@@ -1,0 +1,49 @@
+======================================================================
+
+Using device: mps
+
+Loading CIFAR-100 data...
+Training samples: 45000
+Validation samples: 5000
+Test samples: 10000
+
+Creating CNN model...
+Total parameters: 2,215,940
+
+======================================================================
+Starting Training
+======================================================================
+Epoch [  1/25] | Train Loss: 3.1290 | Train Acc: 24.90% | Val Loss: 2.9509 | Val Acc: 27.84%
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Epoch [  5/25] | Train Loss: 1.4444 | Train Acc: 60.45% | Val Loss: 2.2351 | Val Acc: 43.02%
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Epoch [ 10/25] | Train Loss: 0.7799 | Train Acc: 77.67% | Val Loss: 2.0634 | Val Acc: 46.58%
+Epoch [ 15/25] | Train Loss: 0.5377 | Train Acc: 84.36% | Val Loss: 2.0043 | Val Acc: 48.38%
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Epoch [ 20/25] | Train Loss: 0.4491 | Train Acc: 87.11% | Val Loss: 2.0708 | Val Acc: 48.36%
+Epoch [ 25/25] | Train Loss: 0.4138 | Train Acc: 88.14% | Val Loss: 2.1515 | Val Acc: 46.28%
+
+======================================================================
+Training Completed
+======================================================================
+Best Validation Accuracy: 48.78%
+
+Generating training history plots...
+Training history plot saved to ./checkpoints/training_history_cnn.png
+2025-12-09 10:15:55.398 Python[5876:56963] +[IMKClient subclass]: chose IMKClient_Modern
+2025-12-09 10:15:55.398 Python[5876:56963] +[IMKInputSession subclass]: chose IMKInputSession_Modern
+
+Evaluating on test set...
+Test Loss: 2.1153 | Test Accuracy: 47.47%
+
+======================================================================
+All Done!
+======================================================================
