@@ -75,6 +75,24 @@ class CNN(nn.Module):
             nn.ReLU(),
             nn.Dropout(dropout),  #!!! Dropout added here for regularization
             nn.MaxPool2d(2, 2),
+            # Block. 3:
+            nn.Conv2d(64, 128, kernel_size=3, padding=1),
+            nn.BatchNorm2d(128),
+            nn.ReLU(),
+            nn.Conv2d(128, 128, kernel_size=3, padding=1),
+            nn.BatchNorm2d(128),
+            nn.ReLU(),
+            nn.Dropout(dropout),
+            nn.MaxPool2d(2, 2),
+            # Block 4:
+            nn.Conv2d(128, 256, kernel_size=3, padding=1),
+            nn.BatchNorm2d(256),
+            nn.ReLU(),
+            nn.Conv2d(256, 256, kernel_size=3, padding=1),
+            nn.BatchNorm2d(256),
+            nn.ReLU(),
+            nn.Dropout(dropout),
+            nn.MaxPool2d(2, 2),
         )
 
         """
@@ -82,11 +100,13 @@ class CNN(nn.Module):
         Input: 3 * 32 * 32
         Block 1 MaxPool → 32 channels= 16*16
         Block 2 MaxPool → 64 channels= 8*8
-        So flattened size = 64 * 8 * 8 = 4096
+        Block 3 MaxPool → 128 channels= 4*4
+        Block 4 MaxPool → 256 channels= 2*2
+        So flattened size = 256 * 2 * 2 = 1024
         """
         # Fully connected layers
         self.fc_layers = nn.Sequential(
-            nn.Linear(4096, 512),  # fixed input size
+            nn.Linear(1024, 512),  # fixed input size
             nn.BatchNorm1d(512),
             nn.ReLU(),  # missing activation function moved to its correct place
             nn.Dropout(dropout),
