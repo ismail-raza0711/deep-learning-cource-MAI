@@ -21,7 +21,7 @@ class Config:
     NUM_WORKERS = 2
 
     # Training settings
-    NUM_EPOCHS = 25  # !!!! raised from 5 to 25
+    NUM_EPOCHS = 50  # !!!! raised from 5 to 50
     LEARNING_RATE = 0.001
     WEIGHT_DECAY = 5e-4
 

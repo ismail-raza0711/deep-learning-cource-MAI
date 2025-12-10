@@ -1,31 +1,13 @@
-# ---
-# jupyter:
-#   jupytext:
-#     cell_metadata_filter: -all
-#     custom_cell_magics: kql
-#     text_representation:
-#       extension: .py
-#       format_name: percent
-#       format_version: '1.3'
-#       jupytext_version: 1.11.2
-# ---
-
-# %% [markdown]
-# ### Data loading and preprocessing for CIFAR-100
-
-# %%
 """
 Data loading and preprocessing for CIFAR-100.
 """
 
-# %%
 import torch
 from torchvision import datasets, transforms
 from torch.utils.data import DataLoader, random_split
 from config import Config
 
 
-# %%
 def get_data_loaders(data_dir="./data", batch_size=128, val_split=0.1, num_workers=2):
     """
     Create train, validation, and test data loaders for CIFAR-10.
@@ -40,8 +22,9 @@ def get_data_loaders(data_dir="./data", batch_size=128, val_split=0.1, num_worke
         train_loader, val_loader, test_loader
     """
 
-    mean = [0.4914, 0.4822, 0.4465]
-    std = [0.2023, 0.1994, 0.2010]
+    # CIFAR-100 normalization constants (mean and std per channel)
+    mean = [0.5071, 0.4865, 0.4409]
+    std = [0.2673, 0.2564, 0.2762]
 
     # Data transforms
     data_transform = transforms.Compose(
@@ -96,12 +79,10 @@ def get_data_loaders(data_dir="./data", batch_size=128, val_split=0.1, num_worke
     return train_loader, val_loader, test_loader
 
 
-# %%
 def get_cifar100_classes():
-    return datasets.CIFAR100(root=Config.DATA_DIR, download=True).classes
+    return datasets.CIFAR100(root=Config.DATA_DIR, download=False).classes
 
 
-# %%
 if __name__ == "__main__":
     # Test the data loader
     print("Loading CIFAR-100 data...")
