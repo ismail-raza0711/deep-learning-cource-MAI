@@ -30,10 +30,18 @@ def get_data_loaders(data_dir="./data", batch_size=128, val_split=0.1, num_worke
     data_transform = transforms.Compose(
         [transforms.ToTensor(), transforms.Normalize(mean, std)]
     )
+    train_transform = transforms.Compose(
+        [
+            transforms.RandomCrop(32, padding=4),
+            transforms.RandomHorizontalFlip(),
+            transforms.ToTensor(),
+            transforms.Normalize(mean, std),
+        ]
+    )
 
     # Load full training dataset
     full_train_dataset = datasets.CIFAR100(
-        root=data_dir, train=True, download=True, transform=data_transform
+        root=data_dir, train=True, download=True, transform=train_transform
     )
 
     # Split into train and validation
