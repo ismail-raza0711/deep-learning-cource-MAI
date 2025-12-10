@@ -22,7 +22,11 @@ class MLP(nn.Module):
     """
 
     def __init__(
-        self, input_size=3072, hidden_sizes=[512, 256], num_classes=100, dropout=0.3
+        self,
+        input_size=3072,
+        hidden_sizes=[2048, 1024, 512, 256],
+        num_classes=100,
+        dropout=0.5,
     ):
         super(MLP, self).__init__()
 

@@ -1,25 +1,7 @@
-# ---
-# jupyter:
-#   jupytext:
-#     cell_metadata_filter: -all
-#     custom_cell_magics: kql
-#     text_representation:
-#       extension: .py
-#       format_name: percent
-#       format_version: '1.3'
-#       jupytext_version: 1.11.2
-#   kernelspec:
-#     display_name: .venv
-#     language: python
-#     name: python3
-# ---
-
-# %%
 """
 Main training script for CIFAR-10 classification.
 """
 
-# %%
 import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -27,14 +9,13 @@ import numpy as np
 import os
 import random
 
-# %%
+
 from config import Config
 from models import get_model
-from data_loader import get_data_loaders, get_cifar10_classes
+from data_loader import get_data_loaders, get_cifar100_classes
 from utils import train_one_epoch, evaluate, plot_training_history, save_checkpoint
 
 
-# %%
 def set_seed(seed):
     """Set random seeds for reproducibility."""
     random.seed(seed)
@@ -47,7 +28,6 @@ def set_seed(seed):
         torch.backends.cudnn.benchmark = False
 
 
-# %%
 def main():
     """Main training function."""
 
@@ -202,6 +182,5 @@ def main():
     print("=" * 70)
 
 
-# %%
 if __name__ == "__main__":
     main()

@@ -1,0 +1,70 @@
+
+====================== TESTING IMPROVEMENT ROUN 1 ==============================
+
+-> swapped dataset to CIFAR-100 and modified classes and models to accept CIFAR-100 dataset.
+
+== MLP Accuracy ==
+Evaluating on test set...
+Test Loss: 2.9962 | Test Accuracy: 27.45%
+
+== CNN Accuracy ==
+Evaluating on test set...
+Test Loss: 2.1153 | Test Accuracy: 47.47%
+
+
+
+
+
+
+====================== TESTING IMPROVEMENT ROUN 2 ==============================
+==== config =====================================================
+
+-> raised epochs to 100
+
+==== data_loader =====================================================
+
+ -> swapped mean and std values for correct values for CIFAR-100
+ -> added augumentation for the data so model can generalize better
+    (Random crop and horizontal flip)
+
+
+==== models =====================================================
+==> CNN
+-> added 2 more blocks in CNN layers to improve accuracy and feature recognition
+==> MLP
+-> added more hidden layers to the model
+-> increased dropout rate
+==== train =====================================================
+
+
+
+==== utils =====================================================
+
+
+
+
+=================================================================
+
+====================== IMPROVEMENT ROUN 2 ==============================
+==== config =====================================================
+
+
+
+==== data_loader =====================================================
+
+
+
+==== models =====================================================
+
+
+
+==== train =====================================================
+
+
+
+==== utils =====================================================
+
+
+
+
+=================================================================
