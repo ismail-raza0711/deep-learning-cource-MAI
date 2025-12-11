@@ -10,9 +10,8 @@ class Config:
     MODEL_TYPE = "cnn"  # 'mlp' or 'cnn'
 
     # MLP specific settings
-    MLP_HIDDEN_SIZES = [512, 256]
-    MLP_DROPOUT = 0.3
-
+    MLP_HIDDEN_SIZES = [2048, 1024, 512, 256]
+    MLP_DROPOUT = 0.5
     # Data settings
     DATASET = "cifar100"
     DATA_DIR = "./data"

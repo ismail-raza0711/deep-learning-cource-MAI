@@ -3,6 +3,8 @@
 
 -> swapped dataset to CIFAR-100 and modified classes and models to accept CIFAR-100 dataset.
 
+
+=================================================================
 == MLP Accuracy ==
 Evaluating on test set...
 Test Loss: 2.9962 | Test Accuracy: 27.45%
@@ -10,6 +12,7 @@ Test Loss: 2.9962 | Test Accuracy: 27.45%
 == CNN Accuracy ==
 Evaluating on test set...
 Test Loss: 2.1153 | Test Accuracy: 47.47%
+=================================================================
 
 
 
@@ -29,23 +32,30 @@ Test Loss: 2.1153 | Test Accuracy: 47.47%
 
 
 ==== models =====================================================
+
 ==> CNN
 -> added 2 more blocks in CNN layers to improve accuracy and feature recognition
 ==> MLP
 -> added more hidden layers to the model
 -> increased dropout rate
-==== train =====================================================
-
-
-
-==== utils =====================================================
-
-
 
 
 =================================================================
+== CNN Accuracy ==
+Evaluating on test set...
+Test Loss: 1.6408 | Test Accuracy: 55.39%
 
-====================== IMPROVEMENT ROUN 2 ==============================
+== MLP Accuracy ==
+Evaluating on test set...
+Test Loss: 3.4684 | Test Accuracy: 17.22%
+
+=================================================================
+
+
+
+
+
+====================== IMPROVEMENT ROUN 3 ==============================
 ==== config =====================================================
 
 
@@ -65,6 +75,14 @@ Test Loss: 2.1153 | Test Accuracy: 47.47%
 ==== utils =====================================================
 
 
+
+
+
+=================================================================
+
+== MLP Accuracy ==
+
+== CNN Accuracy ==
 
 
 =================================================================

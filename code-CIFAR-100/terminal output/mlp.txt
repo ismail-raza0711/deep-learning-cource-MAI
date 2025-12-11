@@ -1,36 +1,47 @@
 ======================================================================
 Starting Training
 ======================================================================
-Epoch [  1/25] | Train Loss: 3.8773 | Train Acc: 11.22% | Val Loss: 3.5521 | Val Acc: 16.52%
+Epoch [  1/100] | Train Loss: 4.2694 | Train Acc: 5.04% | Val Loss: 3.9497 | Val Acc: 8.36%
+Checkpoint saved to ./checkpoints/best_model_mlp.pth
+Checkpoint saved to ./checkpoints/best_model_mlp.pth
+Checkpoint saved to ./checkpoints/best_model_mlp.pth
+Epoch [  5/100] | Train Loss: 3.8363 | Train Acc: 10.78% | Val Loss: 3.7149 | Val Acc: 12.76%
+Checkpoint saved to ./checkpoints/best_model_mlp.pth
+Checkpoint saved to ./checkpoints/best_model_mlp.pth
+Epoch [ 10/100] | Train Loss: 3.7929 | Train Acc: 11.52% | Val Loss: 3.6715 | Val Acc: 13.76%
 Checkpoint saved to ./checkpoints/best_model_mlp.pth
 Checkpoint saved to ./checkpoints/best_model_mlp.pth
 Checkpoint saved to ./checkpoints/best_model_mlp.pth
 Checkpoint saved to ./checkpoints/best_model_mlp.pth
-Epoch [  5/25] | Train Loss: 3.2984 | Train Acc: 20.64% | Val Loss: 3.2451 | Val Acc: 21.40%
+Epoch [ 15/100] | Train Loss: 3.7653 | Train Acc: 11.77% | Val Loss: 3.6065 | Val Acc: 14.22%
+Checkpoint saved to ./checkpoints/best_model_mlp.pth
+Epoch [ 20/100] | Train Loss: 3.7482 | Train Acc: 12.20% | Val Loss: 3.5748 | Val Acc: 14.90%
+Checkpoint saved to ./checkpoints/best_model_mlp.pth
+Epoch [ 25/100] | Train Loss: 3.7443 | Train Acc: 12.28% | Val Loss: 3.5733 | Val Acc: 15.24%
+Checkpoint saved to ./checkpoints/best_model_mlp.pth
+Checkpoint saved to ./checkpoints/best_model_mlp.pth
+Epoch [ 30/100] | Train Loss: 3.7344 | Train Acc: 12.25% | Val Loss: 3.5619 | Val Acc: 15.78%
 Checkpoint saved to ./checkpoints/best_model_mlp.pth
 Checkpoint saved to ./checkpoints/best_model_mlp.pth
 Checkpoint saved to ./checkpoints/best_model_mlp.pth
-Epoch [ 10/25] | Train Loss: 3.1511 | Train Acc: 23.28% | Val Loss: 3.1277 | Val Acc: 23.46%
-Checkpoint saved to ./checkpoints/best_model_mlp.pth
-Epoch [ 15/25] | Train Loss: 3.0691 | Train Acc: 24.64% | Val Loss: 3.0764 | Val Acc: 25.04%
-Checkpoint saved to ./checkpoints/best_model_mlp.pth
-Checkpoint saved to ./checkpoints/best_model_mlp.pth
-Epoch [ 20/25] | Train Loss: 3.0076 | Train Acc: 25.95% | Val Loss: 3.0316 | Val Acc: 26.06%
-Checkpoint saved to ./checkpoints/best_model_mlp.pth
-Epoch [ 25/25] | Train Loss: 2.9768 | Train Acc: 26.45% | Val Loss: 3.0099 | Val Acc: 25.92%
+Epoch [ 35/100] | Train Loss: 3.7234 | Train Acc: 12.57% | Val Loss: 3.5559 | Val Acc: 14.68%
+Epoch [ 40/100] | Train Loss: 3.7253 | Train Acc: 12.67% | Val Loss: 3.5322 | Val Acc: 15.70%
+
+Early stopping triggered after 43 epochs
+Best validation accuracy: 16.12%
 
 ======================================================================
 Training Completed
 ======================================================================
-Best Validation Accuracy: 26.80%
+Best Validation Accuracy: 16.12%
 
 Generating training history plots...
 Training history plot saved to ./checkpoints/training_history_mlp.png
-2025-12-09 09:59:16.728 Python[4919:44439] +[IMKClient subclass]: chose IMKClient_Modern
-2025-12-09 09:59:16.728 Python[4919:44439] +[IMKInputSession subclass]: chose IMKInputSession_Modern
+2025-12-10 21:42:15.947 Python[15030:197041] +[IMKClient subclass]: chose IMKClient_Modern
+2025-12-10 21:42:15.947 Python[15030:197041] +[IMKInputSession subclass]: chose IMKInputSession_Modern
 
 Evaluating on test set...
-Test Loss: 2.9962 | Test Accuracy: 27.45%
+Test Loss: 3.4684 | Test Accuracy: 17.22%
 
 ======================================================================
 All Done!

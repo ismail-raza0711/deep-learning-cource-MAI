@@ -46,7 +46,7 @@ def main():
     print(f"\nUsing device: {device}")
 
     # Load data
-    print("\nLoading CIFAR-10 data...")
+    print("\nLoading CIFAR-100 data...")
     train_loader, val_loader, test_loader = get_data_loaders(
         data_dir=Config.DATA_DIR,
         batch_size=Config.BATCH_SIZE,
