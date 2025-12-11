@@ -85,18 +85,12 @@ def main():
 
     """Label smoothing prevents the model from becoming overconfident,
       acts as regularization, and improved test accuracy by X% in my experiments."""
-    criterion = nn.CrossEntropyLoss(label_smoothing=0.1)
+    criterion = nn.CrossEntropyLoss()
 
     # Optimizer
     optimizer = optim.Adam(
         model.parameters(), lr=Config.LEARNING_RATE, weight_decay=Config.WEIGHT_DECAY
     )
-    """As epochs progress, a fixed LR prevents fine convergence,
-        so I decayed LR every 10 epochs using StepLR. This reduced
-        overfitting and stabilized validation performance."""
-
-    scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=10, gamma=0.5)
-    scheduler.step()
 
     # Training loop
     print("\n" + "=" * 70)
