@@ -68,7 +68,6 @@ class CNN(nn.Module):
             nn.Conv2d(32, 32, kernel_size=3, padding=1),
             nn.BatchNorm2d(32),
             nn.ReLU(),
-            nn.Dropout(dropout),  #!!! Dropout added here for regularization
             nn.MaxPool2d(2, 2),
             # Block 2:
             nn.Conv2d(32, 64, kernel_size=3, padding=1),
@@ -77,7 +76,6 @@ class CNN(nn.Module):
             nn.Conv2d(64, 64, kernel_size=3, padding=1),
             nn.BatchNorm2d(64),
             nn.ReLU(),
-            nn.Dropout(dropout),  #!!! Dropout added here for regularization
             nn.MaxPool2d(2, 2),
             # Block. 3:
             nn.Conv2d(64, 128, kernel_size=3, padding=1),
@@ -86,7 +84,6 @@ class CNN(nn.Module):
             nn.Conv2d(128, 128, kernel_size=3, padding=1),
             nn.BatchNorm2d(128),
             nn.ReLU(),
-            nn.Dropout(dropout),
             nn.MaxPool2d(2, 2),
             # Block 4:
             nn.Conv2d(128, 256, kernel_size=3, padding=1),
@@ -95,12 +92,10 @@ class CNN(nn.Module):
             nn.Conv2d(256, 256, kernel_size=3, padding=1),
             nn.BatchNorm2d(256),
             nn.ReLU(),
-            nn.Dropout(dropout),
             nn.MaxPool2d(2, 2),
         )
 
         """
-        !!!!!!!!!!!!!
         Input: 3 * 32 * 32
         Block 1 MaxPool → 32 channels= 16*16
         Block 2 MaxPool → 64 channels= 8*8

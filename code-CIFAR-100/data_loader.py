@@ -10,10 +10,10 @@ from config import Config
 
 def get_data_loaders(data_dir="./data", batch_size=128, val_split=0.1, num_workers=2):
     """
-    Create train, validation, and test data loaders for CIFAR-10.
+    Create train, validation, and test data loaders for CIFAR-100.
 
     Args:
-        data_dir: Directory to store/load CIFAR-10 data
+        data_dir: Directory to store/load CIFAR-100 data
         batch_size: Batch size for training
         val_split: Fraction of training data to use for validation
         num_workers: Number of workers for data loading
@@ -32,17 +32,22 @@ def get_data_loaders(data_dir="./data", batch_size=128, val_split=0.1, num_worke
     )
     train_transform = transforms.Compose(
         [
-            transforms.RandomCrop(32, padding=4),
-            transforms.RandomHorizontalFlip(),
+            transforms.Resize((40, 40)),
+            transforms.RandomCrop(32),
+            transforms.RandomHorizontalFlip(p=0.5),
+            transforms.RandomGrayscale(p=0.1),
+            transforms.ColorJitter(
+                brightness=0.3, contrast=0.3, saturation=0.3, hue=0.05
+            ),
+            transforms.RandomInvert(p=0.05),
+            transforms.RandomAdjustSharpness(sharpness_factor=2.0, p=0.3),  # MOVED UP
             transforms.ToTensor(),
             transforms.Normalize(mean, std),
         ]
     )
 
     # Load full training dataset
-    full_train_dataset = datasets.CIFAR100(
-        root=data_dir, train=True, download=True, transform=train_transform
-    )
+    full_train_dataset = datasets.CIFAR100(root=data_dir, train=True, download=True)
 
     # Split into train and validation
     val_size = int(len(full_train_dataset) * val_split)
@@ -53,6 +58,9 @@ def get_data_loaders(data_dir="./data", batch_size=128, val_split=0.1, num_worke
         [train_size, val_size],
         generator=torch.Generator().manual_seed(2025),  # For reproducibility
     )
+
+    train_dataset.dataset.transform = train_transform
+    val_dataset.dataset.transform = data_transform
 
     # Load test dataset
     test_dataset = datasets.CIFAR100(

@@ -1,53 +1,35 @@
+======================================================================
+
+Using device: mps
+
+Loading CIFAR-100 data...
+Training samples: 45000
+Validation samples: 5000
+Test samples: 10000
+
+Creating CNN model...
+Total parameters: 1,751,300
 
 ======================================================================
 Starting Training
 ======================================================================
-Epoch [  1/100] | Train Loss: 3.6899 | Train Acc: 12.98% | Val Loss: 3.8248 | Val Acc: 11.10%
+Epoch [  1/100] | Train Loss: 3.3720 | Train Acc: 19.01% | Val Loss: 2.8723 | Val Acc: 27.52%
 Checkpoint saved to ./checkpoints/best_model_cnn.pth
 Checkpoint saved to ./checkpoints/best_model_cnn.pth
 Checkpoint saved to ./checkpoints/best_model_cnn.pth
-Checkpoint saved to ./checkpoints/best_model_cnn.pth
-Epoch [  5/100] | Train Loss: 2.1340 | Train Acc: 42.26% | Val Loss: 2.8120 | Val Acc: 29.14%
-Checkpoint saved to ./checkpoints/best_model_cnn.pth
-Checkpoint saved to ./checkpoints/best_model_cnn.pth
-Checkpoint saved to ./checkpoints/best_model_cnn.pth
-Epoch [ 10/100] | Train Loss: 1.6915 | Train Acc: 52.46% | Val Loss: 2.4844 | Val Acc: 35.26%
-Checkpoint saved to ./checkpoints/best_model_cnn.pth
-Checkpoint saved to ./checkpoints/best_model_cnn.pth
-Epoch [ 15/100] | Train Loss: 1.4773 | Train Acc: 58.06% | Val Loss: 2.2410 | Val Acc: 42.26%
+Epoch [  5/100] | Train Loss: 1.5105 | Train Acc: 57.31% | Val Loss: 1.8667 | Val Acc: 49.62%
 Checkpoint saved to ./checkpoints/best_model_cnn.pth
 Checkpoint saved to ./checkpoints/best_model_cnn.pth
 Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Epoch [ 10/100] | Train Loss: 0.6564 | Train Acc: 80.27% | Val Loss: 2.0207 | Val Acc: 49.80%
 Checkpoint saved to ./checkpoints/best_model_cnn.pth
-Epoch [ 20/100] | Train Loss: 1.3416 | Train Acc: 61.59% | Val Loss: 2.1683 | Val Acc: 44.20%
-Checkpoint saved to ./checkpoints/best_model_cnn.pth
-Checkpoint saved to ./checkpoints/best_model_cnn.pth
-Checkpoint saved to ./checkpoints/best_model_cnn.pth
-Epoch [ 25/100] | Train Loss: 1.2660 | Train Acc: 63.46% | Val Loss: 2.0199 | Val Acc: 46.32%
-Checkpoint saved to ./checkpoints/best_model_cnn.pth
-Epoch [ 30/100] | Train Loss: 1.1973 | Train Acc: 65.29% | Val Loss: 1.9280 | Val Acc: 48.08%
-Checkpoint saved to ./checkpoints/best_model_cnn.pth
-Epoch [ 35/100] | Train Loss: 1.1408 | Train Acc: 66.77% | Val Loss: 1.9404 | Val Acc: 47.76%
-Checkpoint saved to ./checkpoints/best_model_cnn.pth
-Epoch [ 40/100] | Train Loss: 1.0955 | Train Acc: 68.09% | Val Loss: 1.9681 | Val Acc: 47.82%
-Epoch [ 45/100] | Train Loss: 1.0662 | Train Acc: 68.89% | Val Loss: 1.9479 | Val Acc: 49.00%
+Epoch [ 15/100] | Train Loss: 0.3192 | Train Acc: 90.31% | Val Loss: 2.1404 | Val Acc: 52.26%
+Epoch [ 20/100] | Train Loss: 0.2524 | Train Acc: 92.67% | Val Loss: 2.3107 | Val Acc: 50.48%
 
-Early stopping triggered after 47 epochs
-Best validation accuracy: 53.64%
+Early stopping triggered after 22 epochs
+Best validation accuracy: 52.68%
 
 ======================================================================
 Training Completed
 ======================================================================
-Best Validation Accuracy: 53.64%
-
-Generating training history plots...
-Training history plot saved to ./checkpoints/training_history_cnn.png
-2025-12-11 00:56:02.652 Python[16301:218740] +[IMKClient subclass]: chose IMKClient_Modern
-2025-12-11 00:56:02.652 Python[16301:218740] +[IMKInputSession subclass]: chose IMKInputSession_Modern
-
-Evaluating on test set...
-Test Loss: 1.6408 | Test Accuracy: 55.39%
-
-======================================================================
-All Done!
-======================================================================
+Best Validation Accuracy: 52.68%

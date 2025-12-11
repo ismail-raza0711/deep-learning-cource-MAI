@@ -1,5 +1,5 @@
 """
-Configuration file for CIFAR-10 training.
+Configuration file for CIFAR-100 training.
 """
 
 
@@ -20,7 +20,7 @@ class Config:
     NUM_WORKERS = 2
 
     # Training settings
-    NUM_EPOCHS = 100  # !!!! raised from 5 to 50
+    NUM_EPOCHS = 25
     LEARNING_RATE = 0.001
     WEIGHT_DECAY = 5e-4
 
