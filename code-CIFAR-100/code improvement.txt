@@ -90,6 +90,53 @@ train_transform = transforms.Compose(
 Evaluating on test set...
 Test Loss: 2.2424 | Test Accuracy: 50.33%
 
+=================================================================
+
+
+
+====================== IMPROVEMENT ROUN 4 ==============================
+
+==== data_loader =====================================================
+-> fixed augumentation issues, seperated train and validation augumentation
+
+
+==== models =====================================================
+-> corrected CNN architecture
+
+-> Added some more augumentations
+train_transform = transforms.Compose(
+        [
+            transforms.Resize((40, 40)),
+            transforms.RandomCrop(32),
+            transforms.RandomHorizontalFlip(p=0.5),
+            transforms.RandomGrayscale(p=0.1),
+            transforms.ColorJitter(
+                brightness=0.3, contrast=0.3, saturation=0.3, hue=0.05
+            ),
+            transforms.RandomInvert(p=0.05),
+            transforms.RandomAdjustSharpness(sharpness_factor=2.0, p=0.3),  # MOVED UP
+            transforms.ToTensor(),
+            transforms.Normalize(mean, std),
+        ]
+    )
 
 
 =================================================================
+
+== MLP Accuracy ==
+
+== CNN Accuracy ==
+Evaluating on test set...
+Test Loss: 2.2424 | Test Accuracy: 50.33%
+
+=================================================================
+
+
+
+
+
+====================== IMPROVEMENT ROUN 4 ==============================
+
+
+
+========================================================================

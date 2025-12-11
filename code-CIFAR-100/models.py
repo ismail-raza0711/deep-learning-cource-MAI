@@ -56,7 +56,7 @@ class CNN(nn.Module):
     Architecture: Two Conv-BN-ReLU-Conv-BN-ReLU-MaxPool blocks followed by FC layers
     """
 
-    def __init__(self, num_classes=100, dropout=0.25):
+    def __init__(self, num_classes=100, dropout=0.50):
         super(CNN, self).__init__()
 
         # Convolutional layers

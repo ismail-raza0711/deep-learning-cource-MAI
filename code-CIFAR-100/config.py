@@ -21,7 +21,7 @@ class Config:
 
     # Training settings
     NUM_EPOCHS = 25
-    LEARNING_RATE = 0.001
+    LEARNING_RATE = 0.0005
     WEIGHT_DECAY = 5e-4
 
     # Early stopping
