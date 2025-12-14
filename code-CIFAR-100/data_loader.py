@@ -32,15 +32,11 @@ def get_data_loaders(data_dir="./data", batch_size=128, val_split=0.1, num_worke
     )
     train_transform = transforms.Compose(
         [
-            transforms.Resize((40, 40)),
-            transforms.RandomCrop(32),
-            transforms.RandomHorizontalFlip(p=0.5),
-            transforms.RandomGrayscale(p=0.1),
+            transforms.RandomCrop(32, padding=4),
+            transforms.RandomHorizontalFlip(),
             transforms.ColorJitter(
-                brightness=0.3, contrast=0.3, saturation=0.3, hue=0.05
+                brightness=0.2, contrast=0.2, saturation=0.2, hue=0.05
             ),
-            transforms.RandomInvert(p=0.05),
-            transforms.RandomAdjustSharpness(sharpness_factor=2.0, p=0.3),  # MOVED UP
             transforms.ToTensor(),
             transforms.Normalize(mean, std),
         ]
