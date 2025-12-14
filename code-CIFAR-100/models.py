@@ -104,18 +104,27 @@ class CNN(nn.Module):
         So flattened size = 256 * 2 * 2 = 1024
         """
         # Fully connected layers
-        self.fc_layers = nn.Sequential(
+        """self.fc_layers = nn.Sequential(
             nn.Linear(1024, 512),  # fixed input size
             nn.BatchNorm1d(512),
             nn.ReLU(),  # missing activation function moved to its correct place
             nn.Dropout(dropout),
             nn.Linear(512, num_classes),
-        )
+        )"""
+        self.gap = nn.AdaptiveAvgPool2d((1, 1))
+        self.classifier = nn.Linear(256, num_classes)
 
-    def forward(self, x):
+    """def forward(self, x):
         x = self.conv_layers(x)
         x = x.view(x.size(0), -1)  # Flatten
         x = self.fc_layers(x)
+        return x"""
+
+    def forward(self, x):
+        x = self.conv_layers(x)
+        x = self.gap(x)
+        x = x.view(x.size(0), -1)  # Flatten
+        x = self.classifier(x)
         return x
 
 
