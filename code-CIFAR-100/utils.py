@@ -6,6 +6,8 @@ import torch
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+from torchvision import datasets, transforms
+import math
 
 
 def train_one_epoch(model, train_loader, criterion, optimizer, device):
@@ -195,6 +197,99 @@ def load_checkpoint(model, optimizer, filepath, device):
         checkpoint["train_acc"],
         checkpoint["val_acc"],
     )
+
+
+# =========================================================================
+mean = np.array([0.5071, 0.4865, 0.4409])
+std = np.array([0.2673, 0.2564, 0.2762])
+
+
+def get_dataset():
+    # CIFAR-100 normalization
+    mean = np.array([0.5071, 0.4865, 0.4409])
+    std = np.array([0.2673, 0.2564, 0.2762])
+
+    transform = transforms.Compose(
+        [transforms.ToTensor(), transforms.Normalize(mean, std)]
+    )
+
+    dataset = datasets.CIFAR100(
+        root="./data", train=True, download=True, transform=transform
+    )
+    return dataset
+
+
+def plot_dataset_samples(
+    num_samples=30, images_per_row=5, random_samples=True, train=True
+):
+    dataset = get_dataset()
+
+    class_names = dataset.classes
+
+    if random_samples:
+        indices = torch.randperm(len(dataset))[:num_samples]
+    else:
+        indices = range(num_samples)
+
+    # ---------- GRID SHAPE ----------
+    rows = math.ceil(num_samples / images_per_row)
+    cols = images_per_row
+
+    fig, axes = plt.subplots(rows, cols, figsize=(cols * 2, rows * 2.2))
+
+    axes = axes.flatten()  # makes indexing easy
+
+    for ax, idx in zip(axes, indices):
+        image, label = dataset[idx]
+
+        # Tensor → numpy
+        image = image.permute(1, 2, 0).numpy()
+
+        # Unnormalize
+        image = std * image + mean
+        image = np.clip(image, 0, 1)
+
+        ax.imshow(image)
+        ax.set_title(class_names[label], fontsize=8)
+        ax.axis("off")
+
+    # Turn off unused subplots
+    for ax in axes[len(indices) :]:
+        ax.axis("off")
+
+    title = "CIFAR-100 Training Samples" if train else "CIFAR-100 Test Samples"
+    plt.suptitle(title, fontsize=16, fontweight="bold")
+    plt.tight_layout()
+    plt.show()
+
+
+def plot_cifar100_class_distribution(save_path=None):
+    dataset = get_dataset()
+    class_names, class_counts = get_cifar100_class_distribution(dataset)
+
+    plt.figure(figsize=(20, 6))
+    plt.bar(range(len(class_counts)), class_counts.numpy())
+    plt.xlabel("Class index")
+    plt.ylabel("Number of samples")
+    plt.title("CIFAR-100 Class Distribution")
+    plt.grid(axis="y", linestyle="--", alpha=0.6)
+
+    if save_path:
+        plt.savefig(save_path, dpi=300, bbox_inches="tight")
+
+    plt.show()
+
+
+def extract_labels_from_dataset(dataset):
+    return torch.tensor(dataset.targets)
+
+
+def get_cifar100_class_distribution(dataset):
+    labels = torch.tensor(dataset.targets)
+    num_classes = 100
+    class_names = dataset.classes
+    class_counts = torch.bincount(labels, minlength=num_classes)
+    return class_names, class_counts
 
 
 if __name__ == "__main__":
