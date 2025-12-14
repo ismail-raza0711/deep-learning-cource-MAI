@@ -2,7 +2,7 @@
 Main training script for CIFAR-10 classification.
 """
 
-from sched import scheduler
+# from sched import scheduler
 import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -99,6 +99,8 @@ def main():
         weight_decay=Config.WEIGHT_DECAY,
         nesterov=True,
     )
+    scheduler = optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=Config.NUM_EPOCHS)
+    scheduler.step()
 
     # Training loop
     print("\n" + "=" * 70)
