@@ -13,23 +13,38 @@ Total parameters: 1,751,300
 ======================================================================
 Starting Training
 ======================================================================
-Epoch [  1/100] | Train Loss: 3.3720 | Train Acc: 19.01% | Val Loss: 2.8723 | Val Acc: 27.52%
+Epoch [  1/50] | Train Loss: 3.9342 | Train Acc: 10.69% | Val Loss: 3.3610 | Val Acc: 18.54%
 Checkpoint saved to ./checkpoints/best_model_cnn.pth
 Checkpoint saved to ./checkpoints/best_model_cnn.pth
 Checkpoint saved to ./checkpoints/best_model_cnn.pth
-Epoch [  5/100] | Train Loss: 1.5105 | Train Acc: 57.31% | Val Loss: 1.8667 | Val Acc: 49.62%
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Epoch [  5/50] | Train Loss: 2.0824 | Train Acc: 43.57% | Val Loss: 2.2075 | Val Acc: 41.72%
 Checkpoint saved to ./checkpoints/best_model_cnn.pth
 Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Epoch [ 10/50] | Train Loss: 1.4907 | Train Acc: 57.52% | Val Loss: 1.9092 | Val Acc: 48.54%
 Checkpoint saved to ./checkpoints/best_model_cnn.pth
-Epoch [ 10/100] | Train Loss: 0.6564 | Train Acc: 80.27% | Val Loss: 2.0207 | Val Acc: 49.80%
 Checkpoint saved to ./checkpoints/best_model_cnn.pth
-Epoch [ 15/100] | Train Loss: 0.3192 | Train Acc: 90.31% | Val Loss: 2.1404 | Val Acc: 52.26%
-Epoch [ 20/100] | Train Loss: 0.2524 | Train Acc: 92.67% | Val Loss: 2.3107 | Val Acc: 50.48%
+Epoch [ 15/50] | Train Loss: 1.2179 | Train Acc: 64.50% | Val Loss: 1.8890 | Val Acc: 49.70%
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Epoch [ 20/50] | Train Loss: 1.0771 | Train Acc: 68.44% | Val Loss: 2.2960 | Val Acc: 45.44%
+Epoch [ 25/50] | Train Loss: 0.9997 | Train Acc: 70.74% | Val Loss: 2.0935 | Val Acc: 47.84%
 
-Early stopping triggered after 22 epochs
-Best validation accuracy: 52.68%
+Early stopping triggered after 25 epochs
+Best validation accuracy: 49.70%
 
 ======================================================================
 Training Completed
 ======================================================================
-Best Validation Accuracy: 52.68%
+Best Validation Accuracy: 49.70%
+
+Generating training history plots...
+Training history plot saved to ./checkpoints/training_history_cnn.png
+2025-12-14 16:13:22.408 Python[14533:151692] +[IMKClient subclass]: chose IMKClient_Modern
+2025-12-14 16:13:22.408 Python[14533:151692] +[IMKInputSession subclass]: chose IMKInputSession_Modern
+
+Evaluating on test set...
+Test Loss: 2.0605 | Test Accuracy: 47.90%
+
+======================================================================
+All Done!
+======================================================================

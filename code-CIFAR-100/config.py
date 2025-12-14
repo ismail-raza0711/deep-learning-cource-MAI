@@ -20,8 +20,8 @@ class Config:
     NUM_WORKERS = 2
 
     # Training settings
-    NUM_EPOCHS = 25
-    LEARNING_RATE = 0.0005
+    NUM_EPOCHS = 50
+    LEARNING_RATE = 0.1
     WEIGHT_DECAY = 5e-4
 
     # Early stopping

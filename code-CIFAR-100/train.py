@@ -88,8 +88,16 @@ def main():
     criterion = nn.CrossEntropyLoss()
 
     # Optimizer
-    optimizer = optim.Adam(
+    """optimizer = optim.Adam(
         model.parameters(), lr=Config.LEARNING_RATE, weight_decay=Config.WEIGHT_DECAY
+    )"""
+    # fixed optimizer to SGD with momentum and Nesterov
+    optimizer = optim.SGD(
+        model.parameters(),
+        lr=0.1,
+        momentum=0.9,
+        weight_decay=Config.WEIGHT_DECAY,
+        nesterov=True,
     )
 
     # Training loop
