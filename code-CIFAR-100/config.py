@@ -20,13 +20,13 @@ class Config:
     NUM_WORKERS = 2
 
     # Training settings
-    NUM_EPOCHS = 50
-    LEARNING_RATE = 0.1
+    NUM_EPOCHS = 150
+    LEARNING_RATE = 0.03
     WEIGHT_DECAY = 5e-4
 
     # Early stopping
-    USE_EARLY_STOPPING = True
-    PATIENCE = 10
+    USE_EARLY_STOPPING = False
+    PATIENCE = 25
     MIN_DELTA = 0.001  # Minimum change to qualify as improvement
 
     # Device

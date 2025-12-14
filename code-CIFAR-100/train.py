@@ -100,7 +100,6 @@ def main():
         nesterov=True,
     )
     scheduler = optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=Config.NUM_EPOCHS)
-    scheduler.step()
 
     # Training loop
     print("\n" + "=" * 70)
@@ -121,11 +120,25 @@ def main():
         # Validate
         val_loss, val_acc = evaluate(model, val_loader, criterion, device)
 
+        # Update LR
+        scheduler.step()
+
+        # Read current LR (AFTER scheduler.step)
+        current_lr = optimizer.param_groups[0]["lr"]
+
         # Store metrics
         train_losses.append(train_loss)
         val_losses.append(val_loss)
         train_accs.append(train_acc)
         val_accs.append(val_acc)
+
+        if epoch % Config.PRINT_EVERY == 0 or epoch == 1:
+            print(
+                f"Epoch [{epoch:3d}/{Config.NUM_EPOCHS}] | "
+                f"LR: {current_lr:.5f} | "
+                f"Train Acc: {train_acc:.2f}% | "
+                f"Val Acc: {val_acc:.2f}%"
+            )
 
         # Print progress
         if epoch % Config.PRINT_EVERY == 0 or epoch == 1:
