@@ -85,7 +85,7 @@ def main():
 
     """Label smoothing prevents the model from becoming overconfident,
       acts as regularization, and improved test accuracy by X% in my experiments."""
-    criterion = nn.CrossEntropyLoss()
+    criterion = nn.CrossEntropyLoss(label_smoothing=0.1)
 
     # Optimizer
     """optimizer = optim.Adam(
