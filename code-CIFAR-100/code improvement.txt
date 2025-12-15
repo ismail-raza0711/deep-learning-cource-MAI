@@ -137,6 +137,7 @@ Test Loss: 2.2424 | Test Accuracy: 50.33%
 
 ====================== IMPROVEMENT ROUN 4 ==============================
 
-
+-> added dropout in between CNN layers and raised the number of epochs 
+and slightly decreased the learning rate, this caused the accuracy to get to 60%.
 
 ========================================================================
