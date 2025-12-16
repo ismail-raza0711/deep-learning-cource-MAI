@@ -8,7 +8,27 @@ from torch.utils.data import DataLoader, random_split
 from config import Config
 
 
-def get_data_loaders(data_dir="./data", batch_size=128, val_split=0.1, num_workers=2):
+class ApplyTransform(torch.utils.data.Dataset):
+    """
+    A simple wrapper that applies a transform to a dataset subset
+    without affecting the parent dataset.
+    """
+
+    def __init__(self, subset, transform=None):
+        self.subset = subset
+        self.transform = transform
+
+    def __getitem__(self, index):
+        x, y = self.subset[index]
+        if self.transform:
+            x = self.transform(x)
+        return x, y
+
+    def __len__(self):
+        return len(self.subset)
+
+
+def get_data_loaders(data_dir="./data", batch_size=128, val_split=0.15, num_workers=2):
     """
     Create train, validation, and test data loaders for CIFAR-100.
 
@@ -37,8 +57,13 @@ def get_data_loaders(data_dir="./data", batch_size=128, val_split=0.1, num_worke
             transforms.ColorJitter(
                 brightness=0.2, contrast=0.2, saturation=0.2, hue=0.05
             ),
+            transforms.RandomRotation(15),
+            transforms.RandAugment(num_ops=2, magnitude=9),
             transforms.ToTensor(),
             transforms.Normalize(mean, std),
+            transforms.RandomErasing(
+                p=0.5, scale=(0.02, 0.2), ratio=(0.3, 3.3), value=0
+            ),
         ]
     )
 
@@ -47,16 +72,19 @@ def get_data_loaders(data_dir="./data", batch_size=128, val_split=0.1, num_worke
 
     # Split into train and validation
     val_size = int(len(full_train_dataset) * val_split)
-    train_size = len(full_train_dataset) - val_size
+    # train_size = len(full_train_dataset) - val_size
+    train_indices, val_indices = random_split(
+        full_train_dataset, [len(full_train_dataset) - val_size, val_size]
+    )
 
-    train_dataset, val_dataset = random_split(
+    """train_dataset, val_dataset = random_split(
         full_train_dataset,
         [train_size, val_size],
         generator=torch.Generator().manual_seed(2025),  # For reproducibility
     )
 
     train_dataset.dataset.transform = train_transform
-    val_dataset.dataset.transform = data_transform
+    val_dataset.dataset.transform = data_transform"""
 
     # Load test dataset
     test_dataset = datasets.CIFAR100(
@@ -65,7 +93,7 @@ def get_data_loaders(data_dir="./data", batch_size=128, val_split=0.1, num_worke
 
     # Create data loaders
     train_loader = DataLoader(
-        train_dataset,
+        ApplyTransform(train_indices, transform=train_transform),
         batch_size=batch_size,
         shuffle=True,
         num_workers=num_workers,
@@ -73,7 +101,7 @@ def get_data_loaders(data_dir="./data", batch_size=128, val_split=0.1, num_worke
     )
 
     val_loader = DataLoader(
-        val_dataset,
+        ApplyTransform(val_indices, transform=data_transform),
         batch_size=batch_size,
         shuffle=False,
         num_workers=num_workers,

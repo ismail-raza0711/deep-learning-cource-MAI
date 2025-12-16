@@ -87,7 +87,7 @@ class CNN(nn.Module):
             nn.BatchNorm2d(128),
             nn.ReLU(),
             nn.MaxPool2d(2, 2),
-            nn.Dropout2d(0.25),
+            nn.Dropout2d(0.3),
             # Block 4:
             nn.Conv2d(128, 256, kernel_size=3, padding=1),
             nn.BatchNorm2d(256),
@@ -96,7 +96,7 @@ class CNN(nn.Module):
             nn.BatchNorm2d(256),
             nn.ReLU(),
             nn.MaxPool2d(2, 2),
-            nn.Dropout2d(0.3),
+            nn.Dropout2d(0.4),
         )
 
         """
@@ -108,30 +108,30 @@ class CNN(nn.Module):
         So flattened size = 256 * 2 * 2 = 1024
         """
         # Fully connected layers
-        self.fc_layers = nn.Sequential(
+        """self.fc_layers = nn.Sequential(
             nn.Linear(1024, 512),  # fixed input size
             nn.BatchNorm1d(512),
             nn.ReLU(),  # missing activation function moved to its correct place
             nn.Dropout(dropout),
             nn.Linear(512, num_classes),
-        )
+        )"""
 
-        # self.gap = nn.AdaptiveAvgPool2d((1, 1))
-        # self.classifier = nn.Linear(256, num_classes)
-        # self.classifier = nn.Sequential(nn.Dropout(0.5), nn.Linear(256, num_classes))
+        self.gap = nn.AdaptiveAvgPool2d((1, 1))
+        self.classifier = nn.Linear(256, num_classes)
+        self.classifier = nn.Sequential(nn.Dropout(0.5), nn.Linear(256, num_classes))
 
-    def forward(self, x):
+    """def forward(self, x):
         x = self.conv_layers(x)
         x = x.view(x.size(0), -1)  # Flatten
         x = self.fc_layers(x)
-        return x
+        return x"""
 
-    """def forward(self, x):
+    def forward(self, x):
         x = self.conv_layers(x)
         x = self.gap(x)
         x = x.view(x.size(0), -1)  # Flatten
         x = self.classifier(x)
-        return x"""
+        return x
 
 
 def get_model(model_type="cnn", **kwargs):

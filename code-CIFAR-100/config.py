@@ -20,10 +20,10 @@ class Config:
     NUM_WORKERS = 2
 
     # Training settings
-    NUM_EPOCHS = 200
+    NUM_EPOCHS = 300
     LEARNING_RATE = 0.05
-    # WEIGHT_DECAY = 5e-4
-    WEIGHT_DECAY = 1e-3
+    WEIGHT_DECAY = 5e-4
+    # WEIGHT_DECAY = 1e-3
 
     # Early stopping
     USE_EARLY_STOPPING = False
