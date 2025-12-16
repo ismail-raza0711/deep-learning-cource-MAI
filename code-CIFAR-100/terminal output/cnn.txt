@@ -228,8 +228,8 @@ Best Validation Accuracy: 72.64%
 
 Generating training history plots...
 Training history plot saved to ./checkpoints/training_history_cnn.png
-2025-12-16 09:31:26.675 Python[17319:418614] +[IMKClient subclass]: chose IMKClient_Modern
-2025-12-16 09:31:26.675 Python[17319:418614] +[IMKInputSession subclass]: chose IMKInputSession_Modern
+2025-12-16 19:39:05.185 Python[30365:722547] +[IMKClient subclass]: chose IMKClient_Modern
+2025-12-16 19:39:05.185 Python[30365:722547] +[IMKInputSession subclass]: chose IMKInputSession_Modern
 
 Evaluating on test set...
 Test Loss: 1.7159 | Test Accuracy: 72.31%

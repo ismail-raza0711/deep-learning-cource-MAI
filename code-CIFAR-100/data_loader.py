@@ -28,7 +28,7 @@ class ApplyTransform(torch.utils.data.Dataset):
         return len(self.subset)
 
 
-def get_data_loaders(data_dir="./data", batch_size=128, val_split=0.15, num_workers=2):
+def get_data_loaders(data_dir="./data", batch_size=128, val_split=0.1, num_workers=2):
     """
     Create train, validation, and test data loaders for CIFAR-100.
 
