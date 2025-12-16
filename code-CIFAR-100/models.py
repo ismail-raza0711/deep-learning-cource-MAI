@@ -98,15 +98,6 @@ class CNN(nn.Module):
             nn.Dropout2d(0.4),
         )
 
-        # Fully connected layers
-        """self.fc_layers = nn.Sequential(
-            nn.Linear(1024, 512),  # fixed input size
-            nn.BatchNorm1d(512),
-            nn.ReLU(),  # missing activation function moved to its correct place
-            nn.Dropout(dropout),
-            nn.Linear(512, num_classes),
-        )"""
-
         # After Block 4, the output is 512 channels, 2x2 spatial size.
         self.gap = nn.AdaptiveAvgPool2d((1, 1))
 

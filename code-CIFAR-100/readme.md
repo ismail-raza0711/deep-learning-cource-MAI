@@ -1,6 +1,6 @@
 # CIFAR-10 Classification - Correct Implementation
 
-This is a clean, well-structured implementation of CIFAR-10 image classification using PyTorch. It supports both Multi-Layer Perceptron (MLP) and Convolutional Neural Network (CNN) architectures.
+This is a clean, well-structured implementation of CIFAR-100 image classification using PyTorch. It supports both Multi-Layer Perceptron (MLP) and Convolutional Neural Network (CNN) architectures.
 
 ## Project Structure
 
@@ -43,15 +43,26 @@ Edit `config.py` to change settings.
 ### Model Architectures
 
 **MLP (Multi-Layer Perceptron):**
-- Input: Flattened 32×32×3 images 
-- Hidden layers: [512, 256] (configurable)
+- Input: Flattened 32×32×3 images tensors
+- Hidden layers: [2048, 1024, 512, 256] (configurable)
 - BatchNorm + ReLU + Dropout after each hidden layer
-- Output: 10 classes
+- Output: 100 classes
 
 **CNN (Convolutional Neural Network):**
-- 2 convolutional blocks (32→64)
-- Each block: 2 Conv layers + BatchNorm + ReLU + Dropout + MaxPool 
-- Fully connected layers: 512 → 10
+- 4 convolutional blocks (64→128→256→512)
+- Each block: Conv2d layers + BatchNorm2d + ReLU + MaxPool2d + dropout 
+- Capacity: Features doubled filter widths across blocks (up to 512 channels) 
+            for high-capacity feature extraction.
+- Classifier: Uses Global Average Pooling (GAP) followed by a final
+               Linear layer to output 100 class logits.
+
+**Training Pipeline Enhancements**
+- The system implements high-performance training strategy
+- Optimizer: Stochastic Gradient Descent (SGD) with Nesterov Momentum.
+- Scheduler: Cosine Annealing Learning Rate Schedule.
+- Loss: Cross Entropy Loss with Label Smoothing (0.1).
+- Augmentation: Uses aggressive techniques including RandAugment and RandomErasing for
+  robust generalization (used when MODEL_TYPE='cnn') (normal augumentation for MODEL_TYPE='mlp').
 
 ### Expected Performance
 
@@ -60,9 +71,11 @@ With default settings:
 | Model | Validation Acc | Test Acc | Training Time* |
 |-------|---------------|----------|----------------|
 | MLP   | ~50-55%       | ~50-55%  | ~5 min         |
-| CNN   | ~80-85%       | ~80-85%  | ~15 min        |
+| CNN   | ~70-72%       | ~70-72%  | ~10 hrs on mac |
 
-*On GPU (NVIDIA RTX 3080)
+*On MAC (M4 pro)
+
+
 
 ## Output Files
 
@@ -70,10 +83,11 @@ After training, the following files are created in `./checkpoints/`:
 
 - `best_model_cnn.pth` - Best model checkpoint
 - `training_history_cnn.png` - Loss and accuracy curves
+- `training_history_mlp.png` - Loss and accuracy curves
 
 ## Citation
 
-Dataset: [CIFAR-10](https://www.cs.toronto.edu/~kriz/cifar.html)
+Dataset: [CIFAR-10, CIFAR-100](https://www.cs.toronto.edu/~kriz/cifar.html)
 - Learning Multiple Layers of Features from Tiny Images, Alex Krizhevsky, 2009.
 
 ## License

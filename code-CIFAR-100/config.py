@@ -7,11 +7,11 @@ class Config:
     """Configuration parameters for training."""
 
     # Model settings
-    MODEL_TYPE = "cnn"  # 'mlp' or 'cnn'
+    MODEL_TYPE = "mlp"  # 'mlp' or 'cnn'
 
     # MLP specific settings
     MLP_HIDDEN_SIZES = [2048, 1024, 512, 256]
-    MLP_DROPOUT = 0.5
+    MLP_DROPOUT = 0.3
     # Data settings
     DATASET = "cifar100"
     DATA_DIR = "./data"

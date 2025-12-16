@@ -1,47 +1,209 @@
+Configuration Settings
+======================================================================
+BATCH_SIZE.................... 128
+DATASET....................... cifar100
+DATA_DIR...................... ./data
+DEVICE........................ mps
+LEARNING_RATE................. 0.05
+MIN_DELTA..................... 0.001
+MLP_DROPOUT................... 0.3
+MLP_HIDDEN_SIZES.............. [2048, 1024, 512, 256]
+MODEL_TYPE.................... mlp
+NUM_CLASSES................... 100
+NUM_EPOCHS.................... 300
+NUM_WORKERS................... 2
+PATIENCE...................... 25
+PRINT_EVERY................... 5
+RANDOM_SEED................... 42
+SAVE_BEST_ONLY................ True
+SAVE_DIR...................... ./checkpoints
+USE_EARLY_STOPPING............ False
+VAL_SPLIT..................... 0.1
+WEIGHT_DECAY.................. 0.0005
+======================================================================
+
+Using device: mps
+
+Loading CIFAR-100 data...
+Training samples: 45000
+Validation samples: 5000
+Test samples: 10000
+
+Creating MLP model...
+Total parameters: 9,081,188
+
 ======================================================================
 Starting Training
 ======================================================================
-Epoch [  1/100] | Train Loss: 4.2694 | Train Acc: 5.04% | Val Loss: 3.9497 | Val Acc: 8.36%
-Checkpoint saved to ./checkpoints/best_model_mlp.pth
-Checkpoint saved to ./checkpoints/best_model_mlp.pth
-Checkpoint saved to ./checkpoints/best_model_mlp.pth
-Epoch [  5/100] | Train Loss: 3.8363 | Train Acc: 10.78% | Val Loss: 3.7149 | Val Acc: 12.76%
-Checkpoint saved to ./checkpoints/best_model_mlp.pth
-Checkpoint saved to ./checkpoints/best_model_mlp.pth
-Epoch [ 10/100] | Train Loss: 3.7929 | Train Acc: 11.52% | Val Loss: 3.6715 | Val Acc: 13.76%
+Epoch [  1/300] | LR: 0.10000 | Train Acc: 8.98% | Val Acc: 14.78%
+Epoch [  1/300] | Train Loss: 4.1112 | Train Acc: 8.98% | Val Loss: 3.7755 | Val Acc: 14.78%
 Checkpoint saved to ./checkpoints/best_model_mlp.pth
 Checkpoint saved to ./checkpoints/best_model_mlp.pth
 Checkpoint saved to ./checkpoints/best_model_mlp.pth
 Checkpoint saved to ./checkpoints/best_model_mlp.pth
-Epoch [ 15/100] | Train Loss: 3.7653 | Train Acc: 11.77% | Val Loss: 3.6065 | Val Acc: 14.22%
-Checkpoint saved to ./checkpoints/best_model_mlp.pth
-Epoch [ 20/100] | Train Loss: 3.7482 | Train Acc: 12.20% | Val Loss: 3.5748 | Val Acc: 14.90%
-Checkpoint saved to ./checkpoints/best_model_mlp.pth
-Epoch [ 25/100] | Train Loss: 3.7443 | Train Acc: 12.28% | Val Loss: 3.5733 | Val Acc: 15.24%
-Checkpoint saved to ./checkpoints/best_model_mlp.pth
-Checkpoint saved to ./checkpoints/best_model_mlp.pth
-Epoch [ 30/100] | Train Loss: 3.7344 | Train Acc: 12.25% | Val Loss: 3.5619 | Val Acc: 15.78%
+Epoch [  5/300] | LR: 0.09993 | Train Acc: 18.73% | Val Acc: 21.88%
+Epoch [  5/300] | Train Loss: 3.6183 | Train Acc: 18.73% | Val Loss: 3.5070 | Val Acc: 21.88%
 Checkpoint saved to ./checkpoints/best_model_mlp.pth
 Checkpoint saved to ./checkpoints/best_model_mlp.pth
 Checkpoint saved to ./checkpoints/best_model_mlp.pth
-Epoch [ 35/100] | Train Loss: 3.7234 | Train Acc: 12.57% | Val Loss: 3.5559 | Val Acc: 14.68%
-Epoch [ 40/100] | Train Loss: 3.7253 | Train Acc: 12.67% | Val Loss: 3.5322 | Val Acc: 15.70%
-
-Early stopping triggered after 43 epochs
-Best validation accuracy: 16.12%
+Checkpoint saved to ./checkpoints/best_model_mlp.pth
+Epoch [ 10/300] | LR: 0.09973 | Train Acc: 22.07% | Val Acc: 25.20%
+Epoch [ 10/300] | Train Loss: 3.4792 | Train Acc: 22.07% | Val Loss: 3.4082 | Val Acc: 25.20%
+Checkpoint saved to ./checkpoints/best_model_mlp.pth
+Epoch [ 15/300] | LR: 0.09938 | Train Acc: 23.32% | Val Acc: 24.40%
+Epoch [ 15/300] | Train Loss: 3.4348 | Train Acc: 23.32% | Val Loss: 3.3916 | Val Acc: 24.40%
+Checkpoint saved to ./checkpoints/best_model_mlp.pth
+Epoch [ 20/300] | LR: 0.09891 | Train Acc: 23.95% | Val Acc: 25.52%
+Epoch [ 20/300] | Train Loss: 3.4128 | Train Acc: 23.95% | Val Loss: 3.3772 | Val Acc: 25.52%
+Checkpoint saved to ./checkpoints/best_model_mlp.pth
+Checkpoint saved to ./checkpoints/best_model_mlp.pth
+Checkpoint saved to ./checkpoints/best_model_mlp.pth
+Epoch [ 25/300] | LR: 0.09830 | Train Acc: 24.38% | Val Acc: 25.88%
+Epoch [ 25/300] | Train Loss: 3.3935 | Train Acc: 24.38% | Val Loss: 3.3708 | Val Acc: 25.88%
+Checkpoint saved to ./checkpoints/best_model_mlp.pth
+Checkpoint saved to ./checkpoints/best_model_mlp.pth
+Epoch [ 30/300] | LR: 0.09755 | Train Acc: 24.92% | Val Acc: 25.58%
+Epoch [ 30/300] | Train Loss: 3.3727 | Train Acc: 24.92% | Val Loss: 3.3574 | Val Acc: 25.58%
+Epoch [ 35/300] | LR: 0.09668 | Train Acc: 24.88% | Val Acc: 25.26%
+Epoch [ 35/300] | Train Loss: 3.3653 | Train Acc: 24.88% | Val Loss: 3.3541 | Val Acc: 25.26%
+Checkpoint saved to ./checkpoints/best_model_mlp.pth
+Checkpoint saved to ./checkpoints/best_model_mlp.pth
+Epoch [ 40/300] | LR: 0.09568 | Train Acc: 25.24% | Val Acc: 25.86%
+Epoch [ 40/300] | Train Loss: 3.3579 | Train Acc: 25.24% | Val Loss: 3.3485 | Val Acc: 25.86%
+Epoch [ 45/300] | LR: 0.09455 | Train Acc: 25.51% | Val Acc: 26.04%
+Epoch [ 45/300] | Train Loss: 3.3470 | Train Acc: 25.51% | Val Loss: 3.3243 | Val Acc: 26.04%
+Epoch [ 50/300] | LR: 0.09330 | Train Acc: 25.87% | Val Acc: 26.82%
+Epoch [ 50/300] | Train Loss: 3.3377 | Train Acc: 25.87% | Val Loss: 3.3437 | Val Acc: 26.82%
+Checkpoint saved to ./checkpoints/best_model_mlp.pth
+Epoch [ 55/300] | LR: 0.09193 | Train Acc: 26.06% | Val Acc: 26.04%
+Epoch [ 55/300] | Train Loss: 3.3339 | Train Acc: 26.06% | Val Loss: 3.3337 | Val Acc: 26.04%
+Checkpoint saved to ./checkpoints/best_model_mlp.pth
+Epoch [ 60/300] | LR: 0.09045 | Train Acc: 26.34% | Val Acc: 26.74%
+Epoch [ 60/300] | Train Loss: 3.3144 | Train Acc: 26.34% | Val Loss: 3.3293 | Val Acc: 26.74%
+Checkpoint saved to ./checkpoints/best_model_mlp.pth
+Epoch [ 65/300] | LR: 0.08886 | Train Acc: 26.81% | Val Acc: 26.90%
+Epoch [ 65/300] | Train Loss: 3.3063 | Train Acc: 26.81% | Val Loss: 3.3449 | Val Acc: 26.90%
+Epoch [ 70/300] | LR: 0.08716 | Train Acc: 26.49% | Val Acc: 26.68%
+Epoch [ 70/300] | Train Loss: 3.3053 | Train Acc: 26.49% | Val Loss: 3.3227 | Val Acc: 26.68%
+Checkpoint saved to ./checkpoints/best_model_mlp.pth
+Epoch [ 75/300] | LR: 0.08536 | Train Acc: 27.13% | Val Acc: 27.36%
+Epoch [ 75/300] | Train Loss: 3.2845 | Train Acc: 27.13% | Val Loss: 3.3198 | Val Acc: 27.36%
+Epoch [ 80/300] | LR: 0.08346 | Train Acc: 27.48% | Val Acc: 27.48%
+Epoch [ 80/300] | Train Loss: 3.2691 | Train Acc: 27.48% | Val Loss: 3.3047 | Val Acc: 27.48%
+Epoch [ 85/300] | LR: 0.08147 | Train Acc: 27.82% | Val Acc: 26.66%
+Epoch [ 85/300] | Train Loss: 3.2549 | Train Acc: 27.82% | Val Loss: 3.3113 | Val Acc: 26.66%
+Checkpoint saved to ./checkpoints/best_model_mlp.pth
+Epoch [ 90/300] | LR: 0.07939 | Train Acc: 28.15% | Val Acc: 27.78%
+Epoch [ 90/300] | Train Loss: 3.2446 | Train Acc: 28.15% | Val Loss: 3.2967 | Val Acc: 27.78%
+Epoch [ 95/300] | LR: 0.07723 | Train Acc: 28.36% | Val Acc: 27.70%
+Epoch [ 95/300] | Train Loss: 3.2300 | Train Acc: 28.36% | Val Loss: 3.3050 | Val Acc: 27.70%
+Checkpoint saved to ./checkpoints/best_model_mlp.pth
+Epoch [100/300] | LR: 0.07500 | Train Acc: 29.19% | Val Acc: 27.72%
+Epoch [100/300] | Train Loss: 3.2156 | Train Acc: 29.19% | Val Loss: 3.2830 | Val Acc: 27.72%
+Epoch [105/300] | LR: 0.07270 | Train Acc: 29.38% | Val Acc: 27.92%
+Epoch [105/300] | Train Loss: 3.1957 | Train Acc: 29.38% | Val Loss: 3.2863 | Val Acc: 27.92%
+Epoch [110/300] | LR: 0.07034 | Train Acc: 29.89% | Val Acc: 27.76%
+Epoch [110/300] | Train Loss: 3.1794 | Train Acc: 29.89% | Val Loss: 3.2956 | Val Acc: 27.76%
+Checkpoint saved to ./checkpoints/best_model_mlp.pth
+Epoch [115/300] | LR: 0.06792 | Train Acc: 30.37% | Val Acc: 27.98%
+Epoch [115/300] | Train Loss: 3.1620 | Train Acc: 30.37% | Val Loss: 3.2808 | Val Acc: 27.98%
+Epoch [120/300] | LR: 0.06545 | Train Acc: 31.20% | Val Acc: 29.12%
+Epoch [120/300] | Train Loss: 3.1369 | Train Acc: 31.20% | Val Loss: 3.2617 | Val Acc: 29.12%
+Checkpoint saved to ./checkpoints/best_model_mlp.pth
+Epoch [125/300] | LR: 0.06294 | Train Acc: 31.52% | Val Acc: 28.14%
+Epoch [125/300] | Train Loss: 3.1221 | Train Acc: 31.52% | Val Loss: 3.2664 | Val Acc: 28.14%
+Epoch [130/300] | LR: 0.06040 | Train Acc: 32.52% | Val Acc: 28.34%
+Epoch [130/300] | Train Loss: 3.0952 | Train Acc: 32.52% | Val Loss: 3.2661 | Val Acc: 28.34%
+Checkpoint saved to ./checkpoints/best_model_mlp.pth
+Epoch [135/300] | LR: 0.05782 | Train Acc: 33.03% | Val Acc: 28.12%
+Epoch [135/300] | Train Loss: 3.0710 | Train Acc: 33.03% | Val Loss: 3.2681 | Val Acc: 28.12%
+Epoch [140/300] | LR: 0.05523 | Train Acc: 33.94% | Val Acc: 28.86%
+Epoch [140/300] | Train Loss: 3.0449 | Train Acc: 33.94% | Val Loss: 3.2461 | Val Acc: 28.86%
+Checkpoint saved to ./checkpoints/best_model_mlp.pth
+Epoch [145/300] | LR: 0.05262 | Train Acc: 34.47% | Val Acc: 29.18%
+Epoch [145/300] | Train Loss: 3.0145 | Train Acc: 34.47% | Val Loss: 3.2408 | Val Acc: 29.18%
+Epoch [150/300] | LR: 0.05000 | Train Acc: 35.54% | Val Acc: 29.64%
+Epoch [150/300] | Train Loss: 2.9835 | Train Acc: 35.54% | Val Loss: 3.2267 | Val Acc: 29.64%
+Epoch [155/300] | LR: 0.04738 | Train Acc: 36.25% | Val Acc: 29.44%
+Epoch [155/300] | Train Loss: 2.9600 | Train Acc: 36.25% | Val Loss: 3.2412 | Val Acc: 29.44%
+Epoch [160/300] | LR: 0.04477 | Train Acc: 37.50% | Val Acc: 29.32%
+Epoch [160/300] | Train Loss: 2.9145 | Train Acc: 37.50% | Val Loss: 3.2351 | Val Acc: 29.32%
+Epoch [165/300] | LR: 0.04218 | Train Acc: 38.53% | Val Acc: 29.92%
+Epoch [165/300] | Train Loss: 2.8818 | Train Acc: 38.53% | Val Loss: 3.2264 | Val Acc: 29.92%
+Epoch [170/300] | LR: 0.03960 | Train Acc: 39.84% | Val Acc: 29.64%
+Epoch [170/300] | Train Loss: 2.8332 | Train Acc: 39.84% | Val Loss: 3.2316 | Val Acc: 29.64%
+Checkpoint saved to ./checkpoints/best_model_mlp.pth
+Epoch [175/300] | LR: 0.03706 | Train Acc: 40.94% | Val Acc: 30.28%
+Epoch [175/300] | Train Loss: 2.7941 | Train Acc: 40.94% | Val Loss: 3.2179 | Val Acc: 30.28%
+Checkpoint saved to ./checkpoints/best_model_mlp.pth
+Checkpoint saved to ./checkpoints/best_model_mlp.pth
+Epoch [180/300] | LR: 0.03455 | Train Acc: 42.27% | Val Acc: 30.22%
+Epoch [180/300] | Train Loss: 2.7535 | Train Acc: 42.27% | Val Loss: 3.2197 | Val Acc: 30.22%
+Epoch [185/300] | LR: 0.03208 | Train Acc: 44.14% | Val Acc: 30.10%
+Epoch [185/300] | Train Loss: 2.6935 | Train Acc: 44.14% | Val Loss: 3.2391 | Val Acc: 30.10%
+Epoch [190/300] | LR: 0.02966 | Train Acc: 45.95% | Val Acc: 29.92%
+Epoch [190/300] | Train Loss: 2.6397 | Train Acc: 45.95% | Val Loss: 3.2272 | Val Acc: 29.92%
+Checkpoint saved to ./checkpoints/best_model_mlp.pth
+Epoch [195/300] | LR: 0.02730 | Train Acc: 47.78% | Val Acc: 30.56%
+Epoch [195/300] | Train Loss: 2.5912 | Train Acc: 47.78% | Val Loss: 3.2300 | Val Acc: 30.56%
+Epoch [200/300] | LR: 0.02500 | Train Acc: 49.62% | Val Acc: 30.36%
+Epoch [200/300] | Train Loss: 2.5262 | Train Acc: 49.62% | Val Loss: 3.2432 | Val Acc: 30.36%
+Checkpoint saved to ./checkpoints/best_model_mlp.pth
+Epoch [205/300] | LR: 0.02277 | Train Acc: 52.04% | Val Acc: 30.84%
+Epoch [205/300] | Train Loss: 2.4517 | Train Acc: 52.04% | Val Loss: 3.2260 | Val Acc: 30.84%
+Epoch [210/300] | LR: 0.02061 | Train Acc: 54.29% | Val Acc: 30.80%
+Epoch [210/300] | Train Loss: 2.3873 | Train Acc: 54.29% | Val Loss: 3.2261 | Val Acc: 30.80%
+Epoch [215/300] | LR: 0.01853 | Train Acc: 56.66% | Val Acc: 31.34%
+Epoch [215/300] | Train Loss: 2.3175 | Train Acc: 56.66% | Val Loss: 3.2382 | Val Acc: 31.34%
+Epoch [220/300] | LR: 0.01654 | Train Acc: 59.58% | Val Acc: 31.46%
+Epoch [220/300] | Train Loss: 2.2395 | Train Acc: 59.58% | Val Loss: 3.2156 | Val Acc: 31.46%
+Checkpoint saved to ./checkpoints/best_model_mlp.pth
+Epoch [225/300] | LR: 0.01464 | Train Acc: 62.24% | Val Acc: 31.18%
+Epoch [225/300] | Train Loss: 2.1681 | Train Acc: 62.24% | Val Loss: 3.2360 | Val Acc: 31.18%
+Epoch [230/300] | LR: 0.01284 | Train Acc: 64.98% | Val Acc: 31.44%
+Epoch [230/300] | Train Loss: 2.0844 | Train Acc: 64.98% | Val Loss: 3.2430 | Val Acc: 31.44%
+Epoch [235/300] | LR: 0.01114 | Train Acc: 67.81% | Val Acc: 31.26%
+Epoch [235/300] | Train Loss: 2.0071 | Train Acc: 67.81% | Val Loss: 3.2375 | Val Acc: 31.26%
+Epoch [240/300] | LR: 0.00955 | Train Acc: 70.81% | Val Acc: 31.16%
+Epoch [240/300] | Train Loss: 1.9258 | Train Acc: 70.81% | Val Loss: 3.2448 | Val Acc: 31.16%
+Checkpoint saved to ./checkpoints/best_model_mlp.pth
+Epoch [245/300] | LR: 0.00807 | Train Acc: 73.84% | Val Acc: 30.94%
+Epoch [245/300] | Train Loss: 1.8519 | Train Acc: 73.84% | Val Loss: 3.2595 | Val Acc: 30.94%
+Epoch [250/300] | LR: 0.00670 | Train Acc: 76.37% | Val Acc: 31.22%
+Epoch [250/300] | Train Loss: 1.7761 | Train Acc: 76.37% | Val Loss: 3.2504 | Val Acc: 31.22%
+Epoch [255/300] | LR: 0.00545 | Train Acc: 79.45% | Val Acc: 31.44%
+Epoch [255/300] | Train Loss: 1.6991 | Train Acc: 79.45% | Val Loss: 3.2605 | Val Acc: 31.44%
+Epoch [260/300] | LR: 0.00432 | Train Acc: 82.09% | Val Acc: 30.64%
+Epoch [260/300] | Train Loss: 1.6315 | Train Acc: 82.09% | Val Loss: 3.2675 | Val Acc: 30.64%
+Epoch [265/300] | LR: 0.00332 | Train Acc: 83.86% | Val Acc: 30.94%
+Epoch [265/300] | Train Loss: 1.5769 | Train Acc: 83.86% | Val Loss: 3.2539 | Val Acc: 30.94%
+Epoch [270/300] | LR: 0.00245 | Train Acc: 85.73% | Val Acc: 30.62%
+Epoch [270/300] | Train Loss: 1.5251 | Train Acc: 85.73% | Val Loss: 3.2561 | Val Acc: 30.62%
+Epoch [275/300] | LR: 0.00170 | Train Acc: 87.41% | Val Acc: 30.94%
+Epoch [275/300] | Train Loss: 1.4797 | Train Acc: 87.41% | Val Loss: 3.2534 | Val Acc: 30.94%
+Epoch [280/300] | LR: 0.00109 | Train Acc: 88.69% | Val Acc: 30.92%
+Epoch [280/300] | Train Loss: 1.4427 | Train Acc: 88.69% | Val Loss: 3.2578 | Val Acc: 30.92%
+Epoch [285/300] | LR: 0.00062 | Train Acc: 89.84% | Val Acc: 30.74%
+Epoch [285/300] | Train Loss: 1.4118 | Train Acc: 89.84% | Val Loss: 3.2672 | Val Acc: 30.74%
+Epoch [290/300] | LR: 0.00027 | Train Acc: 90.31% | Val Acc: 31.38%
+Epoch [290/300] | Train Loss: 1.4004 | Train Acc: 90.31% | Val Loss: 3.2597 | Val Acc: 31.38%
+Epoch [295/300] | LR: 0.00007 | Train Acc: 90.76% | Val Acc: 30.94%
+Epoch [295/300] | Train Loss: 1.3871 | Train Acc: 90.76% | Val Loss: 3.2624 | Val Acc: 30.94%
+Epoch [300/300] | LR: 0.00000 | Train Acc: 90.52% | Val Acc: 31.16%
+Epoch [300/300] | Train Loss: 1.3882 | Train Acc: 90.52% | Val Loss: 3.2607 | Val Acc: 31.16%
 
 ======================================================================
 Training Completed
 ======================================================================
-Best Validation Accuracy: 16.12%
+Best Validation Accuracy: 31.66%
 
 Generating training history plots...
 Training history plot saved to ./checkpoints/training_history_mlp.png
-2025-12-10 21:42:15.947 Python[15030:197041] +[IMKClient subclass]: chose IMKClient_Modern
-2025-12-10 21:42:15.947 Python[15030:197041] +[IMKInputSession subclass]: chose IMKInputSession_Modern
+2025-12-16 22:31:17.796 Python[38471:846304] +[IMKClient subclass]: chose IMKClient_Modern
+2025-12-16 22:31:17.796 Python[38471:846304] +[IMKInputSession subclass]: chose IMKInputSession_Modern
 
 Evaluating on test set...
-Test Loss: 3.4684 | Test Accuracy: 17.22%
+Test Loss: 3.2213 | Test Accuracy: 31.46%
 
 ======================================================================
 All Done!

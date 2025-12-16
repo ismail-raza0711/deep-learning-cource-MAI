@@ -53,6 +53,7 @@ def main():
         batch_size=Config.BATCH_SIZE,
         val_split=Config.VAL_SPLIT,
         num_workers=Config.NUM_WORKERS,
+        model_type=Config.MODEL_TYPE,
     )
     print(f"Training samples: {len(train_loader.dataset)}")
     print(f"Validation samples: {len(val_loader.dataset)}")

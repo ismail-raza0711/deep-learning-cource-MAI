@@ -28,20 +28,9 @@ class ApplyTransform(torch.utils.data.Dataset):
         return len(self.subset)
 
 
-def get_data_loaders(data_dir="./data", batch_size=128, val_split=0.1, num_workers=2):
-    """
-    Create train, validation, and test data loaders for CIFAR-100.
-
-    Args:
-        data_dir: Directory to store/load CIFAR-100 data
-        batch_size: Batch size for training
-        val_split: Fraction of training data to use for validation
-        num_workers: Number of workers for data loading
-
-    Returns:
-        train_loader, val_loader, test_loader
-    """
-
+def get_data_loaders(
+    data_dir="./data", batch_size=128, val_split=0.1, num_workers=2, model_type="cnn"
+):
     # CIFAR-100 normalization constants (mean and std per channel)
     mean = [0.5071, 0.4865, 0.4409]
     std = [0.2673, 0.2564, 0.2762]
@@ -50,22 +39,36 @@ def get_data_loaders(data_dir="./data", batch_size=128, val_split=0.1, num_worke
     data_transform = transforms.Compose(
         [transforms.ToTensor(), transforms.Normalize(mean, std)]
     )
-    train_transform = transforms.Compose(
-        [
-            transforms.RandomCrop(32, padding=4),
-            transforms.RandomHorizontalFlip(),
-            transforms.ColorJitter(
-                brightness=0.2, contrast=0.2, saturation=0.2, hue=0.05
-            ),
-            transforms.RandomRotation(15),
-            transforms.RandAugment(num_ops=2, magnitude=9),
-            transforms.ToTensor(),
-            transforms.Normalize(mean, std),
-            transforms.RandomErasing(
-                p=0.5, scale=(0.02, 0.2), ratio=(0.3, 3.3), value=0
-            ),
-        ]
-    )
+
+    # Data augmentation for training set
+    if model_type.lower() == "cnn":
+        train_transform = transforms.Compose(
+            [
+                transforms.RandomCrop(32, padding=4),
+                transforms.RandomHorizontalFlip(),
+                transforms.ColorJitter(
+                    brightness=0.2, contrast=0.2, saturation=0.2, hue=0.05
+                ),
+                transforms.RandomRotation(15),
+                transforms.RandAugment(num_ops=2, magnitude=9),
+                transforms.ToTensor(),
+                transforms.Normalize(mean, std),
+                transforms.RandomErasing(
+                    p=0.5, scale=(0.02, 0.2), ratio=(0.3, 3.3), value=0
+                ),
+            ]
+        )
+    else:
+        # Simplified augmentation for MLP
+        train_transform = transforms.Compose(
+            [
+                transforms.ColorJitter(
+                    brightness=0.2, contrast=0.2, saturation=0.2, hue=0.05
+                ),
+                transforms.ToTensor(),
+                transforms.Normalize(mean, std),
+            ]
+        )
 
     # Load full training dataset
     full_train_dataset = datasets.CIFAR100(root=data_dir, train=True, download=True)
@@ -126,7 +129,9 @@ def get_cifar100_classes():
 if __name__ == "__main__":
     # Test the data loader
     print("Loading CIFAR-100 data...")
-    train_loader, val_loader, test_loader = get_data_loaders(batch_size=64)
+    train_loader, val_loader, test_loader = get_data_loaders(
+        batch_size=64, model_type=Config.MODEL_TYPE
+    )
 
     print(f"\nDataset sizes:")
     print(f"Training samples: {len(train_loader.dataset)}")
