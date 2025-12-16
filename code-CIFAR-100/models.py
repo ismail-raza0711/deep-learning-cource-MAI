@@ -52,34 +52,24 @@ class MLP(nn.Module):
 
 class CNN(nn.Module):
     """
-    Convolutional Neural Network for CIFAR-10 classification.
-    Architecture: Two Conv-BN-ReLU-Conv-BN-ReLU-MaxPool blocks followed by FC layers
+    Convolutional Neural Network for CIFAR-100 classification with increased capacity.
     """
 
     def __init__(self, num_classes=100, dropout=0.50):
         super(CNN, self).__init__()
 
-        # Convolutional layers
+        # Model Capacity Increase: Channels are doubled (e.g., 32->64, 64->128, etc.)
         self.conv_layers = nn.Sequential(
-            # Block 1:
-            nn.Conv2d(3, 32, kernel_size=3, padding=1),
-            nn.BatchNorm2d(32),
-            nn.ReLU(),
-            nn.Conv2d(32, 32, kernel_size=3, padding=1),
-            nn.BatchNorm2d(32),
-            nn.ReLU(),
-            nn.MaxPool2d(2, 2),
-            nn.Dropout2d(0.1),
-            # Block 2:
-            nn.Conv2d(32, 64, kernel_size=3, padding=1),
+            # Block 1 (32x32 -> 16x16)
+            nn.Conv2d(3, 64, kernel_size=3, padding=1),
             nn.BatchNorm2d(64),
             nn.ReLU(),
             nn.Conv2d(64, 64, kernel_size=3, padding=1),
             nn.BatchNorm2d(64),
             nn.ReLU(),
             nn.MaxPool2d(2, 2),
-            nn.Dropout2d(0.2),
-            # Block. 3:
+            nn.Dropout2d(0.1),
+            # Block 2 (16x16 -> 8x8)
             nn.Conv2d(64, 128, kernel_size=3, padding=1),
             nn.BatchNorm2d(128),
             nn.ReLU(),
@@ -87,8 +77,8 @@ class CNN(nn.Module):
             nn.BatchNorm2d(128),
             nn.ReLU(),
             nn.MaxPool2d(2, 2),
-            nn.Dropout2d(0.3),
-            # Block 4:
+            nn.Dropout2d(0.2),
+            # Block 3 (8x8 -> 4x4)
             nn.Conv2d(128, 256, kernel_size=3, padding=1),
             nn.BatchNorm2d(256),
             nn.ReLU(),
@@ -96,17 +86,18 @@ class CNN(nn.Module):
             nn.BatchNorm2d(256),
             nn.ReLU(),
             nn.MaxPool2d(2, 2),
+            nn.Dropout2d(0.3),
+            # Block 4 (4x4 -> 2x2)
+            nn.Conv2d(256, 512, kernel_size=3, padding=1),  # Increased from 256
+            nn.BatchNorm2d(512),
+            nn.ReLU(),
+            nn.Conv2d(512, 512, kernel_size=3, padding=1),  # Increased from 256
+            nn.BatchNorm2d(512),
+            nn.ReLU(),
+            nn.MaxPool2d(2, 2),
             nn.Dropout2d(0.4),
         )
 
-        """
-        Input: 3 * 32 * 32
-        Block 1 MaxPool → 32 channels= 16*16
-        Block 2 MaxPool → 64 channels= 8*8
-        Block 3 MaxPool → 128 channels= 4*4
-        Block 4 MaxPool → 256 channels= 2*2
-        So flattened size = 256 * 2 * 2 = 1024
-        """
         # Fully connected layers
         """self.fc_layers = nn.Sequential(
             nn.Linear(1024, 512),  # fixed input size
@@ -116,15 +107,14 @@ class CNN(nn.Module):
             nn.Linear(512, num_classes),
         )"""
 
+        # After Block 4, the output is 512 channels, 2x2 spatial size.
         self.gap = nn.AdaptiveAvgPool2d((1, 1))
-        self.classifier = nn.Linear(256, num_classes)
-        self.classifier = nn.Sequential(nn.Dropout(0.5), nn.Linear(256, num_classes))
 
-    """def forward(self, x):
-        x = self.conv_layers(x)
-        x = x.view(x.size(0), -1)  # Flatten
-        x = self.fc_layers(x)
-        return x"""
+        # Classifier: Input size must now match 512 (the final output channel count)
+        self.classifier = nn.Sequential(
+            nn.Dropout(dropout),
+            nn.Linear(512, num_classes),  # Changed input from 256 to 512
+        )
 
     def forward(self, x):
         x = self.conv_layers(x)
@@ -151,6 +141,15 @@ def get_model(model_type="cnn", **kwargs):
         return CNN(**kwargs)
     else:
         raise ValueError(f"Unknown model type: {model_type}. Choose 'mlp' or 'cnn'.")
+
+        # Fully connected layers
+        """self.fc_layers = nn.Sequential(
+            nn.Linear(1024, 512),  # fixed input size
+            nn.BatchNorm1d(512),
+            nn.ReLU(),  # missing activation function moved to its correct place
+            nn.Dropout(dropout),
+            nn.Linear(512, num_classes),
+        )"""
 
 
 if __name__ == "__main__":

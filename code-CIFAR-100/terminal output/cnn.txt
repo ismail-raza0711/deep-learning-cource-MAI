@@ -1,27 +1,4 @@
 ======================================================================
-Configuration Settings
-======================================================================
-BATCH_SIZE.................... 128
-DATASET....................... cifar100
-DATA_DIR...................... ./data
-DEVICE........................ mps
-LEARNING_RATE................. 0.05
-MIN_DELTA..................... 0.001
-MLP_DROPOUT................... 0.5
-MLP_HIDDEN_SIZES.............. [2048, 1024, 512, 256]
-MODEL_TYPE.................... cnn
-NUM_CLASSES................... 100
-NUM_EPOCHS.................... 200
-NUM_WORKERS................... 2
-PATIENCE...................... 25
-PRINT_EVERY................... 5
-RANDOM_SEED................... 42
-SAVE_BEST_ONLY................ True
-SAVE_DIR...................... ./checkpoints
-USE_EARLY_STOPPING............ False
-VAL_SPLIT..................... 0.1
-WEIGHT_DECAY.................. 0.001
-======================================================================
 
 Using device: mps
 
@@ -31,8 +8,232 @@ Validation samples: 5000
 Test samples: 10000
 
 Creating CNN model...
-Total parameters: 1,751,300
+Total parameters: 4,740,516
 
 ======================================================================
 Starting Training
+======================================================================
+Epoch [  1/300] | LR: 0.10000 | Train Acc: 2.62% | Val Acc: 5.54%
+Epoch [  1/300] | Train Loss: 4.5362 | Train Acc: 2.62% | Val Loss: 4.1775 | Val Acc: 5.54%
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Epoch [  5/300] | LR: 0.09993 | Train Acc: 9.35% | Val Acc: 17.98%
+Epoch [  5/300] | Train Loss: 4.0306 | Train Acc: 9.35% | Val Loss: 3.6371 | Val Acc: 17.98%
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Epoch [ 10/300] | LR: 0.09973 | Train Acc: 18.60% | Val Acc: 28.28%
+Epoch [ 10/300] | Train Loss: 3.6038 | Train Acc: 18.60% | Val Loss: 3.1571 | Val Acc: 28.28%
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Epoch [ 15/300] | LR: 0.09938 | Train Acc: 23.87% | Val Acc: 39.00%
+Epoch [ 15/300] | Train Loss: 3.3763 | Train Acc: 23.87% | Val Loss: 2.7737 | Val Acc: 39.00%
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Epoch [ 20/300] | LR: 0.09891 | Train Acc: 26.95% | Val Acc: 42.28%
+Epoch [ 20/300] | Train Loss: 3.2727 | Train Acc: 26.95% | Val Loss: 2.6747 | Val Acc: 42.28%
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Epoch [ 25/300] | LR: 0.09830 | Train Acc: 28.98% | Val Acc: 45.70%
+Epoch [ 25/300] | Train Loss: 3.2078 | Train Acc: 28.98% | Val Loss: 2.5838 | Val Acc: 45.70%
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Epoch [ 30/300] | LR: 0.09755 | Train Acc: 30.09% | Val Acc: 44.54%
+Epoch [ 30/300] | Train Loss: 3.1698 | Train Acc: 30.09% | Val Loss: 2.5877 | Val Acc: 44.54%
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Epoch [ 35/300] | LR: 0.09668 | Train Acc: 30.78% | Val Acc: 46.24%
+Epoch [ 35/300] | Train Loss: 3.1443 | Train Acc: 30.78% | Val Loss: 2.5317 | Val Acc: 46.24%
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Epoch [ 40/300] | LR: 0.09568 | Train Acc: 31.50% | Val Acc: 46.90%
+Epoch [ 40/300] | Train Loss: 3.1259 | Train Acc: 31.50% | Val Loss: 2.5059 | Val Acc: 46.90%
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Epoch [ 45/300] | LR: 0.09455 | Train Acc: 32.07% | Val Acc: 46.44%
+Epoch [ 45/300] | Train Loss: 3.1128 | Train Acc: 32.07% | Val Loss: 2.5542 | Val Acc: 46.44%
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Epoch [ 50/300] | LR: 0.09330 | Train Acc: 32.40% | Val Acc: 49.84%
+Epoch [ 50/300] | Train Loss: 3.0978 | Train Acc: 32.40% | Val Loss: 2.4100 | Val Acc: 49.84%
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Epoch [ 55/300] | LR: 0.09193 | Train Acc: 32.85% | Val Acc: 47.16%
+Epoch [ 55/300] | Train Loss: 3.0805 | Train Acc: 32.85% | Val Loss: 2.5311 | Val Acc: 47.16%
+Epoch [ 60/300] | LR: 0.09045 | Train Acc: 32.85% | Val Acc: 46.92%
+Epoch [ 60/300] | Train Loss: 3.0736 | Train Acc: 32.85% | Val Loss: 2.5280 | Val Acc: 46.92%
+Epoch [ 65/300] | LR: 0.08886 | Train Acc: 33.14% | Val Acc: 48.58%
+Epoch [ 65/300] | Train Loss: 3.0561 | Train Acc: 33.14% | Val Loss: 2.4771 | Val Acc: 48.58%
+Epoch [ 70/300] | LR: 0.08716 | Train Acc: 33.88% | Val Acc: 49.04%
+Epoch [ 70/300] | Train Loss: 3.0405 | Train Acc: 33.88% | Val Loss: 2.4567 | Val Acc: 49.04%
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Epoch [ 75/300] | LR: 0.08536 | Train Acc: 34.45% | Val Acc: 49.48%
+Epoch [ 75/300] | Train Loss: 3.0307 | Train Acc: 34.45% | Val Loss: 2.4214 | Val Acc: 49.48%
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Epoch [ 80/300] | LR: 0.08346 | Train Acc: 34.46% | Val Acc: 50.44%
+Epoch [ 80/300] | Train Loss: 3.0242 | Train Acc: 34.46% | Val Loss: 2.3982 | Val Acc: 50.44%
+Epoch [ 85/300] | LR: 0.08147 | Train Acc: 34.87% | Val Acc: 50.04%
+Epoch [ 85/300] | Train Loss: 3.0103 | Train Acc: 34.87% | Val Loss: 2.4085 | Val Acc: 50.04%
+Epoch [ 90/300] | LR: 0.07939 | Train Acc: 35.26% | Val Acc: 51.40%
+Epoch [ 90/300] | Train Loss: 2.9911 | Train Acc: 35.26% | Val Loss: 2.3845 | Val Acc: 51.40%
+Epoch [ 95/300] | LR: 0.07723 | Train Acc: 35.46% | Val Acc: 49.98%
+Epoch [ 95/300] | Train Loss: 2.9799 | Train Acc: 35.46% | Val Loss: 2.4204 | Val Acc: 49.98%
+Epoch [100/300] | LR: 0.07500 | Train Acc: 35.86% | Val Acc: 51.44%
+Epoch [100/300] | Train Loss: 2.9646 | Train Acc: 35.86% | Val Loss: 2.3600 | Val Acc: 51.44%
+Epoch [105/300] | LR: 0.07270 | Train Acc: 36.44% | Val Acc: 51.58%
+Epoch [105/300] | Train Loss: 2.9583 | Train Acc: 36.44% | Val Loss: 2.3414 | Val Acc: 51.58%
+Epoch [110/300] | LR: 0.07034 | Train Acc: 36.67% | Val Acc: 53.26%
+Epoch [110/300] | Train Loss: 2.9359 | Train Acc: 36.67% | Val Loss: 2.3072 | Val Acc: 53.26%
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Epoch [115/300] | LR: 0.06792 | Train Acc: 37.16% | Val Acc: 49.94%
+Epoch [115/300] | Train Loss: 2.9255 | Train Acc: 37.16% | Val Loss: 2.3947 | Val Acc: 49.94%
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Epoch [120/300] | LR: 0.06545 | Train Acc: 37.50% | Val Acc: 53.10%
+Epoch [120/300] | Train Loss: 2.9103 | Train Acc: 37.50% | Val Loss: 2.3036 | Val Acc: 53.10%
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Epoch [125/300] | LR: 0.06294 | Train Acc: 38.05% | Val Acc: 53.70%
+Epoch [125/300] | Train Loss: 2.8872 | Train Acc: 38.05% | Val Loss: 2.2860 | Val Acc: 53.70%
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Epoch [130/300] | LR: 0.06040 | Train Acc: 38.81% | Val Acc: 53.30%
+Epoch [130/300] | Train Loss: 2.8765 | Train Acc: 38.81% | Val Loss: 2.3032 | Val Acc: 53.30%
+Epoch [135/300] | LR: 0.05782 | Train Acc: 39.38% | Val Acc: 54.14%
+Epoch [135/300] | Train Loss: 2.8519 | Train Acc: 39.38% | Val Loss: 2.2797 | Val Acc: 54.14%
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Epoch [140/300] | LR: 0.05523 | Train Acc: 39.82% | Val Acc: 55.74%
+Epoch [140/300] | Train Loss: 2.8419 | Train Acc: 39.82% | Val Loss: 2.2296 | Val Acc: 55.74%
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Epoch [145/300] | LR: 0.05262 | Train Acc: 40.15% | Val Acc: 57.62%
+Epoch [145/300] | Train Loss: 2.8162 | Train Acc: 40.15% | Val Loss: 2.1918 | Val Acc: 57.62%
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Epoch [150/300] | LR: 0.05000 | Train Acc: 40.46% | Val Acc: 55.30%
+Epoch [150/300] | Train Loss: 2.8070 | Train Acc: 40.46% | Val Loss: 2.2492 | Val Acc: 55.30%
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Epoch [155/300] | LR: 0.04738 | Train Acc: 41.63% | Val Acc: 56.00%
+Epoch [155/300] | Train Loss: 2.7781 | Train Acc: 41.63% | Val Loss: 2.2278 | Val Acc: 56.00%
+Epoch [160/300] | LR: 0.04477 | Train Acc: 42.02% | Val Acc: 59.12%
+Epoch [160/300] | Train Loss: 2.7583 | Train Acc: 42.02% | Val Loss: 2.1454 | Val Acc: 59.12%
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Epoch [165/300] | LR: 0.04218 | Train Acc: 42.61% | Val Acc: 58.46%
+Epoch [165/300] | Train Loss: 2.7447 | Train Acc: 42.61% | Val Loss: 2.1270 | Val Acc: 58.46%
+Epoch [170/300] | LR: 0.03960 | Train Acc: 42.88% | Val Acc: 58.04%
+Epoch [170/300] | Train Loss: 2.7217 | Train Acc: 42.88% | Val Loss: 2.1588 | Val Acc: 58.04%
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Epoch [175/300] | LR: 0.03706 | Train Acc: 43.89% | Val Acc: 59.38%
+Epoch [175/300] | Train Loss: 2.6922 | Train Acc: 43.89% | Val Loss: 2.1057 | Val Acc: 59.38%
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Epoch [180/300] | LR: 0.03455 | Train Acc: 44.63% | Val Acc: 59.86%
+Epoch [180/300] | Train Loss: 2.6693 | Train Acc: 44.63% | Val Loss: 2.1009 | Val Acc: 59.86%
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Epoch [185/300] | LR: 0.03208 | Train Acc: 45.32% | Val Acc: 60.32%
+Epoch [185/300] | Train Loss: 2.6506 | Train Acc: 45.32% | Val Loss: 2.0815 | Val Acc: 60.32%
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Epoch [190/300] | LR: 0.02966 | Train Acc: 46.35% | Val Acc: 61.82%
+Epoch [190/300] | Train Loss: 2.6156 | Train Acc: 46.35% | Val Loss: 2.0224 | Val Acc: 61.82%
+Epoch [195/300] | LR: 0.02730 | Train Acc: 47.08% | Val Acc: 61.86%
+Epoch [195/300] | Train Loss: 2.5951 | Train Acc: 47.08% | Val Loss: 2.0392 | Val Acc: 61.86%
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Epoch [200/300] | LR: 0.02500 | Train Acc: 47.78% | Val Acc: 63.22%
+Epoch [200/300] | Train Loss: 2.5690 | Train Acc: 47.78% | Val Loss: 1.9966 | Val Acc: 63.22%
+Epoch [205/300] | LR: 0.02277 | Train Acc: 48.64% | Val Acc: 62.32%
+Epoch [205/300] | Train Loss: 2.5436 | Train Acc: 48.64% | Val Loss: 2.0183 | Val Acc: 62.32%
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Epoch [210/300] | LR: 0.02061 | Train Acc: 49.69% | Val Acc: 62.80%
+Epoch [210/300] | Train Loss: 2.5082 | Train Acc: 49.69% | Val Loss: 1.9868 | Val Acc: 62.80%
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Epoch [215/300] | LR: 0.01853 | Train Acc: 50.25% | Val Acc: 63.82%
+Epoch [215/300] | Train Loss: 2.4831 | Train Acc: 50.25% | Val Loss: 1.9679 | Val Acc: 63.82%
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Epoch [220/300] | LR: 0.01654 | Train Acc: 51.23% | Val Acc: 65.36%
+Epoch [220/300] | Train Loss: 2.4513 | Train Acc: 51.23% | Val Loss: 1.9139 | Val Acc: 65.36%
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Epoch [225/300] | LR: 0.01464 | Train Acc: 52.07% | Val Acc: 66.00%
+Epoch [225/300] | Train Loss: 2.4215 | Train Acc: 52.07% | Val Loss: 1.9040 | Val Acc: 66.00%
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Epoch [230/300] | LR: 0.01284 | Train Acc: 53.01% | Val Acc: 66.86%
+Epoch [230/300] | Train Loss: 2.3863 | Train Acc: 53.01% | Val Loss: 1.8644 | Val Acc: 66.86%
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Epoch [235/300] | LR: 0.01114 | Train Acc: 54.00% | Val Acc: 67.72%
+Epoch [235/300] | Train Loss: 2.3653 | Train Acc: 54.00% | Val Loss: 1.8469 | Val Acc: 67.72%
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Epoch [240/300] | LR: 0.00955 | Train Acc: 55.17% | Val Acc: 68.52%
+Epoch [240/300] | Train Loss: 2.3275 | Train Acc: 55.17% | Val Loss: 1.8207 | Val Acc: 68.52%
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Epoch [245/300] | LR: 0.00807 | Train Acc: 56.11% | Val Acc: 68.60%
+Epoch [245/300] | Train Loss: 2.2934 | Train Acc: 56.11% | Val Loss: 1.8140 | Val Acc: 68.60%
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Epoch [250/300] | LR: 0.00670 | Train Acc: 57.11% | Val Acc: 68.86%
+Epoch [250/300] | Train Loss: 2.2681 | Train Acc: 57.11% | Val Loss: 1.7959 | Val Acc: 68.86%
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Epoch [255/300] | LR: 0.00545 | Train Acc: 58.04% | Val Acc: 70.10%
+Epoch [255/300] | Train Loss: 2.2379 | Train Acc: 58.04% | Val Loss: 1.7760 | Val Acc: 70.10%
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Epoch [260/300] | LR: 0.00432 | Train Acc: 58.71% | Val Acc: 70.38%
+Epoch [260/300] | Train Loss: 2.2128 | Train Acc: 58.71% | Val Loss: 1.7640 | Val Acc: 70.38%
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Epoch [265/300] | LR: 0.00332 | Train Acc: 59.45% | Val Acc: 70.98%
+Epoch [265/300] | Train Loss: 2.1842 | Train Acc: 59.45% | Val Loss: 1.7431 | Val Acc: 70.98%
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Epoch [270/300] | LR: 0.00245 | Train Acc: 60.59% | Val Acc: 71.56%
+Epoch [270/300] | Train Loss: 2.1526 | Train Acc: 60.59% | Val Loss: 1.7371 | Val Acc: 71.56%
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Epoch [275/300] | LR: 0.00170 | Train Acc: 61.44% | Val Acc: 71.84%
+Epoch [275/300] | Train Loss: 2.1315 | Train Acc: 61.44% | Val Loss: 1.7240 | Val Acc: 71.84%
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Epoch [280/300] | LR: 0.00109 | Train Acc: 61.63% | Val Acc: 71.94%
+Epoch [280/300] | Train Loss: 2.1241 | Train Acc: 61.63% | Val Loss: 1.7166 | Val Acc: 71.94%
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Epoch [285/300] | LR: 0.00062 | Train Acc: 62.42% | Val Acc: 72.30%
+Epoch [285/300] | Train Loss: 2.0966 | Train Acc: 62.42% | Val Loss: 1.7080 | Val Acc: 72.30%
+Epoch [290/300] | LR: 0.00027 | Train Acc: 62.66% | Val Acc: 72.12%
+Epoch [290/300] | Train Loss: 2.0902 | Train Acc: 62.66% | Val Loss: 1.7101 | Val Acc: 72.12%
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Epoch [295/300] | LR: 0.00007 | Train Acc: 62.94% | Val Acc: 72.42%
+Epoch [295/300] | Train Loss: 2.0873 | Train Acc: 62.94% | Val Loss: 1.7066 | Val Acc: 72.42%
+Checkpoint saved to ./checkpoints/best_model_cnn.pth
+Epoch [300/300] | LR: 0.00000 | Train Acc: 62.92% | Val Acc: 72.34%
+Epoch [300/300] | Train Loss: 2.0842 | Train Acc: 62.92% | Val Loss: 1.7048 | Val Acc: 72.34%
+
+======================================================================
+Training Completed
+======================================================================
+Best Validation Accuracy: 72.64%
+
+Generating training history plots...
+Training history plot saved to ./checkpoints/training_history_cnn.png
+2025-12-16 09:31:26.675 Python[17319:418614] +[IMKClient subclass]: chose IMKClient_Modern
+2025-12-16 09:31:26.675 Python[17319:418614] +[IMKInputSession subclass]: chose IMKInputSession_Modern
+
+Evaluating on test set...
+Test Loss: 1.7159 | Test Accuracy: 72.31%
+
+======================================================================
+All Done!
 ======================================================================
