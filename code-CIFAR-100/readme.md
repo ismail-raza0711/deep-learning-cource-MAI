@@ -70,7 +70,7 @@ With default settings:
 
 | Model | Validation Acc | Test Acc | Training Time* |
 |-------|---------------|----------|----------------|
-| MLP   | ~50-55%       | ~50-55%  | ~5 min         |
+| MLP   | ~30-31%       | ~30-31%  | ~2 hrs on mac.          |
 | CNN   | ~70-72%       | ~70-72%  | ~10 hrs on mac |
 
 *On MAC (M4 pro)
@@ -82,8 +82,26 @@ With default settings:
 After training, the following files are created in `./checkpoints/`:
 
 - `best_model_cnn.pth` - Best model checkpoint
+- `best_model_mlp.pth` - Best model checkpoint
 - `training_history_cnn.png` - Loss and accuracy curves
 - `training_history_mlp.png` - Loss and accuracy curves
+
+
+**download CIFAR-100 best_model_cnn in same directory:**
+https://huggingface.co/ismail071/CIFAR-100-Custom-CNN-pipeline/resolve/main/best_model_cnn.pth
+
+**download CIFAR-100 training_history_cnn in same directory:**
+https://huggingface.co/ismail071/CIFAR-100-Custom-CNN-pipeline/resolve/main/training_history_cnn.png
+
+
+**download CIFAR-100 best_model_mlp in same directory:**
+https://huggingface.co/ismail071/CIFAR-100-MLP/resolve/main/best_model_mlp.pth
+
+**download CIFAR-100 training_history_mlp in same directory:**
+https://huggingface.co/ismail071/CIFAR-100-MLP/resolve/main/training_history_mlp.png
+
+
+
 
 ## Citation
 

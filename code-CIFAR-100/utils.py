@@ -25,11 +25,6 @@ def train_one_epoch(model, train_loader, criterion, optimizer, device):
         average_loss, accuracy
     """
 
-    """ 
-    !!!!!!!!!!!!!
-    Set model to training mode
-    !!!!!!!!!!!!!!
-    """
     model.train()  # this line was missing
 
     running_loss = 0.0

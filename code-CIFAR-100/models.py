@@ -9,16 +9,8 @@ import torch.nn as nn
 class MLP(nn.Module):
     """
     Multi-Layer Perceptron for CIFAR-10 classification.
-    Input: 3x32x32 image tensors flattened to vectors
-    Output: 10 class logits
-    """
-
-    """
-    !!!!!!!!!!!!!
-    Wroing input size!
-    CIFAR-10 images are of size 3x32x32 = 3072 so input size
-    can not be 1024
-    !!!!!!!!!!!!!!
+    Input: 3x32x32 = 3072 image tensors flattened to vectors
+    Output: 100 class logits
     """
 
     def __init__(
@@ -41,7 +33,6 @@ class MLP(nn.Module):
             in_size = hidden_size
 
         layers.append(nn.Linear(in_size, num_classes))
-        # layers.append(nn.ReLU()) # !!!!!! Removed activation from output layer
 
         self.network = nn.Sequential(*layers)
 
@@ -58,7 +49,7 @@ class CNN(nn.Module):
     def __init__(self, num_classes=100, dropout=0.50):
         super(CNN, self).__init__()
 
-        # Model Capacity Increase: Channels are doubled (e.g., 32->64, 64->128, etc.)
+        # Model Capacity Increase: Channels are doubled (e.g., 32->64, 64->128.......)
         self.conv_layers = nn.Sequential(
             # Block 1 (32x32 -> 16x16)
             nn.Conv2d(3, 64, kernel_size=3, padding=1),
@@ -97,14 +88,13 @@ class CNN(nn.Module):
             nn.MaxPool2d(2, 2),
             nn.Dropout2d(0.4),
         )
-
-        # After Block 4, the output is 512 channels, 2x2 spatial size.
+        # Global Average Pooling
         self.gap = nn.AdaptiveAvgPool2d((1, 1))
 
         # Classifier: Input size must now match 512 (the final output channel count)
         self.classifier = nn.Sequential(
             nn.Dropout(dropout),
-            nn.Linear(512, num_classes),  # Changed input from 256 to 512
+            nn.Linear(512, num_classes),
         )
 
     def forward(self, x):
@@ -132,15 +122,6 @@ def get_model(model_type="cnn", **kwargs):
         return CNN(**kwargs)
     else:
         raise ValueError(f"Unknown model type: {model_type}. Choose 'mlp' or 'cnn'.")
-
-        # Fully connected layers
-        """self.fc_layers = nn.Sequential(
-            nn.Linear(1024, 512),  # fixed input size
-            nn.BatchNorm1d(512),
-            nn.ReLU(),  # missing activation function moved to its correct place
-            nn.Dropout(dropout),
-            nn.Linear(512, num_classes),
-        )"""
 
 
 if __name__ == "__main__":
