@@ -26,7 +26,7 @@ def evaluate_model(model_type):
     criterion = nn.CrossEntropyLoss()
 
     # data loader
-    _, _, test_loader = get_data_loaders(batch_size=64, model_type=model_type)
+    _, _, test_loader = get_data_loaders(batch_size=64)
 
     # evaluation
     model.eval()
@@ -60,7 +60,7 @@ def evaluate_model(model_type):
 # Usage
 # -------------------------------
 if __name__ == "__main__":
-    print("Evaluating CNN Model.......")
+    print("Evaluating CNN model....")
     evaluate_model("cnn")
-    print("\nEvaluating MLP Model.......")
+    print("\nEvaluating MLP model....")
     evaluate_model("mlp")

@@ -64,7 +64,6 @@ class CNN(nn.Module):
             nn.Conv2d(32, 32, kernel_size=3, padding=1),
             nn.BatchNorm2d(32),
             nn.ReLU(),
-            nn.Dropout(dropout),  #!!! Dropout added here for regularization
             nn.MaxPool2d(2, 2),
             # Block 2:
             nn.Conv2d(32, 64, kernel_size=3, padding=1),
@@ -73,8 +72,8 @@ class CNN(nn.Module):
             nn.Conv2d(64, 64, kernel_size=3, padding=1),
             nn.BatchNorm2d(64),
             nn.ReLU(),
-            nn.Dropout(dropout),  #!!! Dropout added here for regularization
             nn.MaxPool2d(2, 2),
+            nn.Dropout(dropout),  # dropout added here for regularization
         )
 
         """

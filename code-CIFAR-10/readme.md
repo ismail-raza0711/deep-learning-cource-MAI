@@ -50,7 +50,8 @@ Edit `config.py` to change settings.
 
 **CNN (Convolutional Neural Network):**
 - 2 convolutional blocks (32→64)
-- Each block: 2 Conv layers + BatchNorm + ReLU + Dropout + MaxPool 
+- Each block: 2 Conv layers + BatchNorm + ReLU + MaxPool
+- Followed by a dropout layer 
 - Fully connected layers: 512 → 10
 
 ### Expected Performance
@@ -59,10 +60,10 @@ With default settings:
 
 | Model | Validation Acc | Test Acc | Training Time* |
 |-------|---------------|----------|----------------|
-| MLP   | ~50-55%       | ~50-55%  | ~5 min         |
-| CNN   | ~80-85%       | ~80-85%  | ~15 min        |
+| MLP   | ~50-53%       | ~50-53%  | ~15 min         |
+| CNN   | ~79-82%       | ~79-82%  | ~30 min        |
 
-*On GPU (NVIDIA RTX 3080)
+*On mac M4
 
 ## Output Files
 
@@ -75,6 +76,23 @@ After training, the following files are created in `./checkpoints/`:
 
 Dataset: [CIFAR-10](https://www.cs.toronto.edu/~kriz/cifar.html)
 - Learning Multiple Layers of Features from Tiny Images, Alex Krizhevsky, 2009.
+
+
+## TRAINED MODELS
+
+**download CIFAR-10 best_model_cnn in same directory:**
+https://huggingface.co/ismail071/CIFAR-10-MLP-CNN/resolve/main/best_model_cnn.pth
+
+**download CIFAR-10 training_history_cnn in same directory:**
+https://huggingface.co/ismail071/CIFAR-10-MLP-CNN/resolve/main/training_history_cnn.png
+
+
+**download CIFAR-10 best_model_mlp in same directory:**
+https://huggingface.co/ismail071/CIFAR-10-MLP-CNN/resolve/main/best_model_mlp.pth
+
+**download CIFAR-10 training_history_mlp in same directory:**
+https://huggingface.co/ismail071/CIFAR-10-MLP-CNN/resolve/main/training_history_mlp.png
+
 
 ## License
 

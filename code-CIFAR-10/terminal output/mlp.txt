@@ -1,4 +1,26 @@
 ======================================================================
+Configuration Settings
+======================================================================
+BATCH_SIZE.................... 128
+DATA_DIR...................... ./data
+DEVICE........................ mps
+LEARNING_RATE................. 0.001
+MIN_DELTA..................... 0.001
+MLP_DROPOUT................... 0.3
+MLP_HIDDEN_SIZES.............. [512, 256]
+MODEL_TYPE.................... mlp
+NUM_CLASSES................... 10
+NUM_EPOCHS.................... 25
+NUM_WORKERS................... 2
+PATIENCE...................... 10
+PRINT_EVERY................... 5
+RANDOM_SEED................... 42
+SAVE_BEST_ONLY................ True
+SAVE_DIR...................... ./checkpoints
+USE_EARLY_STOPPING............ True
+VAL_SPLIT..................... 0.1
+WEIGHT_DECAY.................. 0.0005
+======================================================================
 
 Using device: mps
 
@@ -37,8 +59,8 @@ Best Validation Accuracy: 53.10%
 
 Generating training history plots...
 Training history plot saved to ./checkpoints/training_history_mlp.png
-2025-12-08 20:07:40.113 Python[15072:127500] +[IMKClient subclass]: chose IMKClient_Modern
-2025-12-08 20:07:40.113 Python[15072:127500] +[IMKInputSession subclass]: chose IMKInputSession_Modern
+2025-12-17 08:24:00.126 Python[6063:98747] +[IMKClient subclass]: chose IMKClient_Modern
+2025-12-17 08:24:00.126 Python[6063:98747] +[IMKInputSession subclass]: chose IMKInputSession_Modern
 
 Evaluating on test set...
 Test Loss: 1.3002 | Test Accuracy: 53.40%
