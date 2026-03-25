@@ -88,7 +88,7 @@ class CNN(nn.Module):
             nn.MaxPool2d(2, 2),
             nn.Dropout2d(0.4),
         )
-        # Global Average Pooling
+        # Adaptive Average Pooling instead of FC layers
         self.gap = nn.AdaptiveAvgPool2d((1, 1))
 
         # Classifier: Input size must now match 512 (the final output channel count)

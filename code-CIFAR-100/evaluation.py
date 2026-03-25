@@ -16,10 +16,10 @@ def evaluate_model(model_type):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
     # build model
-    model = get_model(model_type=model_type).to(device)
+    model = get_model(model_type="cnn").to(device)
 
     # load checkpoint
-    model_path = f"best_model_{model_type}.pth"
+    model_path = "best_model_cnn.pth"
     checkpoint = torch.load(model_path, map_location=device)
     model.load_state_dict(checkpoint["model_state_dict"])
 

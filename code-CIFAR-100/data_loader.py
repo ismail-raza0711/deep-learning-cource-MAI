@@ -12,6 +12,7 @@ class ApplyTransform(torch.utils.data.Dataset):
     """
     A simple wrapper that applies a transform to a dataset subset
     without affecting the parent dataset.
+    i am using ths to fix the data leacage issue when applying the transforms
     """
 
     def __init__(self, subset, transform=None):

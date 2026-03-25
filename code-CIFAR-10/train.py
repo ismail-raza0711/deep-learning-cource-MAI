@@ -78,6 +78,7 @@ def main():
     !!!!!!!!!!!!!!!
     we will use CrossEntropyLoss instead of NLLLoss
     CrossEntropyLoss internally does log_softmax + NLLLoss
+    NLLLoss requires log-probabilities, while our model outputs raw logits.
     !!!!!!!!!!!!!!!
     """
     criterion = nn.CrossEntropyLoss()
